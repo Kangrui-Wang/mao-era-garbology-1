@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insignia - Mao Era Garbology</title>
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        /* 导航菜单样式 */
+        .nav-menu {
+            position: fixed;
+            top: 50%;
+            right: 30px;
+            transform: translateY(-50%);
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.98);
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            min-width: 200px;
+        }
+
+        .nav-menu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .nav-menu li {
+            margin-bottom: 15px;
+        }
+
+        .nav-menu li:last-child {
+            margin-bottom: 0;
+        }
+
+        .nav-menu a {
+            display: block;
+            padding: 12px 20px;
+            color: #4a4a4a;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+            white-space: nowrap;
+            border: 1px solid transparent;
+        }
+
+        .nav-menu a:hover {
+            background-color: #ed693def;
+            color: white;
+            border-color: #ed693def;
+            transform: translateX(-5px);
+        }
+
+        .nav-menu .home-link {
+            background-color: #ed693def;
+            color: white;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .nav-menu .home-link:hover {
+            background-color: #d45a2e;
+            color: white;
+            transform: translateX(-5px);
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: static;
+                transform: none;
+                margin: 20px auto;
+                text-align: center;
+                max-width: 90%;
+            }
+
+            .nav-menu ul {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+
+            .nav-menu li {
+                margin-bottom: 0;
+            }
+
+            .nav-menu .home-link {
+                margin-bottom: 0;
+            }
+
+            .nav-menu a {
+                padding: 10px 15px;
+                font-size: 1rem;
+            }
+        }
+
+        /* 子页面特定样式 */
+        .subpage-header {
+            height: 40vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+                        url('../images/summer-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .subpage-title {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .subpage-subtitle {
+            font-size: 1.2rem;
+            font-weight: 300;
+        }
+
+        .content-section {
+            padding: 60px 0;
+            background-color: #fff;
+        }
+
+        .content-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .content-section h2 {
+            font-size: 2rem;
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+            text-align: left;
+        }
+
+        .content-section p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 1.5rem;
+            text-align: left;
+        }
+
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin: 2rem 0;
+        }
+
+        .image-grid img {
+            width: 100%;
+            height: 450px;
+            object-fit: contain;
+            background: #fff;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .image-grid img:hover {
+            transform: scale(1.05);
+        }
+
+        /* New image styles */
+        .single-image,
+        .vertical-image,
+        .horizontal-image,
+        .vertical-stack {
+            max-width: 800px;
+            margin: 2rem auto;
+            text-align: center;
+        }
+
+        .single-image img,
+        .vertical-image img,
+        .horizontal-image img,
+        .stacked-image img {
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        .image-caption {
+            margin-top: 1rem;
+            font-style: italic;
+            color: #666;
+        }
+
+        .vertical-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .stacked-image {
+            text-align: center;
+        }
+
+        .back-to-home {
+            display: block;
+            padding: 8px 18px;
+            background-color: #ed693def;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            margin: 2rem auto 2rem auto;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+            font-size: 1rem;
+        }
+
+        .back-to-home:hover {
+            background-color: #d45a2e;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .subpage-header {
+                height: 30vh;
+            }
+
+            .subpage-title {
+                font-size: 2.5rem;
+            }
+
+            .content-section {
+                padding: 40px 0;
+            }
+
+            .content-section h2 {
+                font-size: 1.8rem;
+            }
+
+            .content-section p {
+                font-size: 1rem;
+            }
+
+            .image-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav-menu">
+        <ul>
+            <li><a href="../index.html" class="home-link">Home Page</a></li>
+            <li><a href="intro.html">Thesis</a></li>
+            <li><a href="author.html">Author</a></li>
+            <li><a href="references.html">References</a></li>
+        </ul>
+    </nav>
+
+    <header class="subpage-header">
+        <div class="container">
+            <h1 class="subpage-title">Honors and Insignia</h1>
+            <p class="subpage-subtitle">Exploring the remnants of the badges, medals, and insignia of the Mao Era</p>
+        </div>
+    </header>
+
+    <section class="content-section">
+        <div class="content-container">
+            <p>Honors and insignia emerged alongside the very initial emergence of the socio-political hierarchy, the division of labor, and conscious social groups. Honors and insignia often denote the sense of belonging whether it be pertaining to communities or achievements socially, economically, and politically.</p>
+            <p>Honors and insignia have also evolved and adapted over the years: from the earliest Crown of Sumer and the Crown of Upper Egypt to the development of various coats of arms in medieval Europe, to the flags of the P.O.U.M. flying during the Barcelona May Days of the Spanish Civil War, <b>all the way to the symbolic Mao Badges and "Red Guard" sleeve badges during the Chinese Great Proletarian Cultural Revolution </b> that will be examined on this page.</p>
+            <p>Globalizing and extending the scope beyond Mao and the "Maoist time-space vicinity", we can also consider the elaborate insignia of the Byzantine Empire, the ceremonial robes worn by monarchs, and the distinctive military decorations introduced during World War I as evidence of the manifestations of honors and insignia over the course of history. Moreover, the use of the Olympic rings as a symbol of unity and competition also exemplifies how insignia can represent broader ideals.</p>
+            <h2>Honors - Achievement and Recognition</h2>
+            <p>Honors in the Mao Era are a complicated topic.</p>
+            <p>On one hand, Mao and the leadership of the Party (CPC) stressed the importance of using honors of various kinds to commemorate the revolutionary martyrs, award exemplary workers, and, in general, to recognize the contributions made by individuals during the socialist revolution and the construction of the new socialist state. Following this narrative, it may seem that honors would naturally flourish in the Mao Era, perhaps even similar to its revolutionary forebear – the Soviet Union.</p>
+            <p>Indeed, in the early ages of the People's Republic, China did adopt a Soviet-style honors and decoration system: the Orders and Medals of Bayi, Independence and Freedom, and Liberation (see below for specifics). This resulted in the first wave of honors being issued circa 1955, the same time when the Type 55 Uniform was issued.</p>
+            <p>However, the elevated status given to medals and honors soon resulted in what Mao viewed as "individualistic heroism" that ran starkly contrary to the "collectivism" of the new socialist state. Consequently, after the initial circa 1955 wave of honor issues, Mao directed the state to gradually decrease its issuing and the importance placed on such awards and honors. Though honors at large remain an integral part of the functioning of Chinese society, their materializations in the form of medals decreased, and they were beginning to be more directed at collectives rather than individuals. Hence, in the late-Mao Era, the honorary titles awarded to factories as a whole compared to a singular worker and to an entire platoon of soldiers instead of a singular soldier became much more common. In Mao's view, this maneuver allowed him to avoid China's descent into the abyss of the appraisal of "individualistic heroism" and allowed it to remain loyal to orthodox Marxist "collectivism". It is also interesting to note that Mao personally refused to be honored and awarded by any formal means. Mao rejected the proposed title of "Grand Marshall of the People's Republic of China" and did not decorate himself with orders and medals, a stark comparison to his Soviet contemporaries such as Stalin, Khrushchev, and especially Brezhnev.</p>
+
+            <div class="single-image">
+                <img src="../images10/honors-1.jpg" alt="Mao Badge Collection">
+                <p class="image-caption">ABOVE. An award certificate of the "Five Good Soldier" dated 1969, awarded to Qian Huimin. The text on the right reads: "Always loyal to Chairman Mao". The top-most text in the center reads "The Great Teacher, the Great Leader, the Great Commander-in-Chief, the Great Helmsman. Long live Chairman Mao!" The main body text of the award certificate reads: "Comrade Qian Huimin is awarded the Five Great Soldiers Honorary Title in 1968 for his flexible learning and active implementation of the Mao Tse-tung Thought". The signature on the bottom right reads: "People's Liberation Army of China, 7332 Unit, Political Department".</p>
+            </div>
+
+            <div class="image-grid">
+                <div class="grid-item">
+                    <img src="../images10/honors-grid-1.jpg" alt="Red Guard Badge">
+                    <p class="image-caption">ABOVE. Order of Bayi, 1st Class. Issued to all personnel that have made significant contributions to the Chinese Revolution during the early "Red Army" Era. (Source: <a href="http://www.58eventer.com/dangjian/275.html" target="_blank">58eventer</a>)</p>
+                </div>
+                <div class="grid-item">
+                    <img src="../images10/honors-grid-2.jpg" alt="Military Medal">
+                    <p class="image-caption"> ABOVE. Order of Independence and Freedom, 3rd Class. Issued for valiant combatants during the Second Sino-Japanese War. (Source: <a href="https://www.hnmuseum.com/gallery/node/7574/24" target="_blank">Hunan Museum</a>)</p>
+                </div>
+                <div class="grid-item">
+                    <img src="../images10/honors-grid-3.jpg" alt="Party Membership Badge">
+                    <p class="image-caption">ABOVE. Order of Liberation, 3rd Class. Issued to honor the heroes and combatants of the Second Chinese Civil War. (Source: <a href="http://ccwm.china.com.cn/dc/2024-02/23/content_42703960.htm" target="_blank">Chinese National Museum of Women and Children</a>)</p>
+                </div>
+                <div class="grid-item">
+                    <img src="../images10/honors-grid-4.jpg" alt="Youth League Pin">
+                    <p class="image-caption">ABOVE. Commemorative Medal of the Victory in the Korean War. (Source: <a href="https://collection.sina.com.cn/jczs/20131217/1544137271.shtml?from=wap" target="_blank">Sina Collection</a>)</p>
+                </div>
+            </div>
+            <p>Mao's directives left China with an almost blank slate regarding its honors system and culture. After Mao's death and the subsequent end of the Cultural Revolution in 1976, the honors system was largely restored. The Meritorious Service Medal was immediately restored and began its issue in the Sino-Vietnamese War to those who had demonstrated exceptional military merit and service. Gradually, China's honors system and culture are being built, aligning itself more with the practices of other nations.</p>
+
+            <div class="single-image">
+                <img src="../images10/honors-2.jpg" alt="Honors System Evolution">
+                <p class="image-caption">ABOVE. (Right) Meritorious Service Medal, 3rd Class. (Left) Meritorious Service Medal (1st Class) being awarded to the soldiers in the Sino-Vietnamese War, cinematic representation from the film "Wreaths at the Foot of the Mountain" (1984).</p>
+            </div>
+            <h2>Insignia - Memorabilia of Identity and Belonging</h2>
+            <p>Comparatively, the insignia of the Mao Era flourished, especially during the Cultural Revolution (1966-1976). Almost all of the insignia of the Mao Era in some way or another related to Mao personally or to Mao’s political directives. As a result of this, openly displaying and wearing such insignia in the Mao Era became a vital means for the average layperson to display their political views and loyalty to the socialist revolution. These insignia took many forms, the most prominent including but not limited to: badges, armbands, and apparel (please see the page “Apparel” for more information).</p>
+            <p>Mao Badges (i.e., badges that feature Mao, usually in the form of a bust), perhaps the most prominent insignia of the Mao Era, can trace their emergence back to 1932 in celebration of Mao’s appointment as the Chairman of the Chinese Soviet. The first wave of Mao Badges and other Mao-related insignia appeared in the 1950s, shortly after the establishment of the People’s Republic of China. Many corporations, which have yet to be nationalized and collectivized, especially jewelry stores, made Mao Badges of their own to indicate their loyalty and allegiance to the CPC and Mao. Scholarship estimates that Mao Badges made in the 1950s account for around 10% of all Mao Badges made. </p>
+            <div class="vertical-image">
+                <img src="../images10/insignia-1.jpg" alt="Portrait of Mao Badge">
+                <p class="image-caption">ABOVE. A collection of three Mao Badges from the Cultural Revolution (Left to Right: "Loyal; Long Live Chairman Mao!; *870*" Mao Badge, Ceramic Mao Badge "Jing De Zhen, China", and "Long Live Chairman Mao!; South Sea Fleet; 1967" Mao Badge)</p>
+            </div>
+            <p>The Red Guard armbands were a significant symbol during the Cultural Revolution. Worn by members of the Red Guards, predominantly youth and students, these armbands served as a badge of ideological commitment to Mao Zedong's revolutionary ideals. Typically made of red cloth, they featured slogans and insignia that promoted communist thought and loyalty to Mao. The armbands distinguished Red Guards as active participants in the movement, empowering them to challenge authority and attack perceived bourgeois elements within society, including teachers, intellectuals, and party officials. This fervent activism contributed to widespread chaos and violence, as the Red Guards sought to purify Chinese society of "counter-revolutionary" influences. The armbands became emblematic of the radical spirit of the time, reflecting the fervor of youth. </p>
+            <div class="horizontal-image">
+                <img src="../images10/insignia-2.jpg" alt="Red Guard Armband">
+                <p class="image-caption">ABOVE. Original Red Guard armband (Beijing) from the Cultural Revolution (The background is a mini-historical recreation scene with a contemporary publication and a certificate)</p>
+            </div>
+            <p>Factory workers were given badges, reflecting the Mao Era’s commitment to honoring and giving importance to the industrial proletariat and their role in building a socialist future. However, this practice diminished in the post-Mao Era as the Communist Party shifted away from rigid ideological commitment and rhetoric.</p>
+            <div class="horizontal-image">
+                <img src="../images10/insignia-3.jpg" alt="Party Membership Card">
+                <p class="image-caption">ABOVE. A factory badge from the Mao Era, No. 446 (The background is from a contemporary newspaper that features discussions regarding the Mao Tse-tung Thought)</p>
+            </div>
+           <p>The frenzy revolving around Mao Badges truly exploded during the Cultural Revolution. Scholarship estimates that around 90% of all Mao Badges and other Mao-related insignia were made during the Cultural Revolution. It is estimated that between 1966 and 1968, over 8 billion Mao Badges were made. At the beginning of the Cultural Revolution, Mao Badges were still a relatively new concept and few wore them daily. However, in 1967, the PLA formally issued a standard Mao Badge to all officers and soldiers, causing a surge in the popularity of Mao Badges. In 1969, the wearing of Mao Badges reached a peak with an estimated 94% of the population wearing Mao Badges. This trend gradually declined after the 1970s as Mao personally directed the “cooling-down” of the Cultural Revolution to refocus the nation, to a certain extent, on economic production.</p>
+            <div class="single-image">
+                <img src="../images10/insignia-4.jpg" alt="Portrait of Mao Badge Collection">
+                <p class="image-caption">ABOVE. Young girl dressed in soldier attire with a Mao Badge at the arrival of the press plane in Peking, China - NARA (Source: <a href="https://commons.wikimedia.org/wiki/File:Young_girl_dressed_in_soldier_attire_at_the_arrival_of_the_press_plane_in_Peking,_China_-_NARA_-_194411_(cropped).tif?page=1" target="_blank">Wikimedia Commons</a>)</p>
+            </div>
+
+            <p>Though Mao expressed great concerns regarding the negative influence of "individualistic heroism" regarding the issuing of honors, Mao was able to create an immense "cult of personality" revolving around the Mao Badge. However, Mao personally expressed disdain for the widespread zeal for Mao Badges and other Mao-related insignia. Mao, Chou, and other high-ranking officials of the CPC viewed the mass production of Mao Badges as a waste of materials in a time when the state was in dire need of materials for economic development. In 1969, the Central Committee issued regulations regarding Mao Badges and other Mao-related insignia, claiming that Mao Badges had become overly formalistic. This resulted in a gradual decline of the presence of Mao Badges, all the way to its de facto termination of its status after the end of the Cultural Revolution. In present-day society, Mao Badges have somewhat made a return and are experiencing an increase in popularity among the leftist youth, though this trend remains rather insignificant. </p>
+
+            <div class="single-image">
+                <img src="../images10/insignia-5.jpg" alt="Mao Badge Collection Display">
+                <p class="image-caption">ABOVE.A side-by-side comparison of Communist Youth League of China badges. The left and the better crafted (copper enamel) belongs to the Mao Era, while the right and the less well-crafted (aluminum paint) belongs to the post-Mao Era, testifying the decline of ideology in the post-Mao Era.</p>
+            </div>
+
+            <a href="../index.html" class="back-to-home">Home Page</a>
+   
+        </div>
+    </section>
+    <p>  </p>
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Mao Era Garbology. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html> 

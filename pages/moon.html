@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diaries - Mao Era Garbology</title>
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        /* 导航菜单样式 */
+        .nav-menu {
+            position: fixed;
+            top: 50%;
+            right: 30px;
+            transform: translateY(-50%);
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.98);
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            min-width: 200px;
+        }
+
+        .nav-menu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .nav-menu li {
+            margin-bottom: 15px;
+        }
+
+        .nav-menu li:last-child {
+            margin-bottom: 0;
+        }
+
+        .nav-menu a {
+            display: block;
+            padding: 12px 20px;
+            color: #4a4a4a;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+            white-space: nowrap;
+            border: 1px solid transparent;
+        }
+
+        .nav-menu a:hover {
+            background-color: #ed693def;
+            color: white;
+            border-color: #ed693def;
+            transform: translateX(-5px);
+        }
+
+        .nav-menu .home-link {
+            background-color: #ed693def;
+            color: white;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .nav-menu .home-link:hover {
+            background-color: #d45a2e;
+            color: white;
+            transform: translateX(-5px);
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: static;
+                transform: none;
+                margin: 20px auto;
+                text-align: center;
+                max-width: 90%;
+            }
+
+            .nav-menu ul {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+
+            .nav-menu li {
+                margin-bottom: 0;
+            }
+
+            .nav-menu .home-link {
+                margin-bottom: 0;
+            }
+
+            .nav-menu a {
+                padding: 10px 15px;
+                font-size: 1rem;
+            }
+        }
+
+        /* 子页面特定样式 */
+        .subpage-header {
+            height: 40vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+                        url('../images/moon-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .subpage-title {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .subpage-subtitle {
+            font-size: 1.2rem;
+            font-weight: 300;
+        }
+
+        .content-section {
+            padding: 60px 0;
+            background-color: #fff;
+        }
+
+        .content-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .content-section h2 {
+            font-size: 2rem;
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+        }
+
+        .content-section p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 1.5rem;
+        }
+
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin: 2rem 0;
+        }
+
+        .image-grid img {
+            width: 100%;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .image-grid img:hover {
+            transform: scale(1.05);
+        }
+
+        .image-caption {
+            text-align: center;
+            margin: 10px 0 30px 0;
+            font-style: italic;
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        .single-image {
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .single-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .single-image img:hover {
+            transform: scale(1.02);
+        }
+
+        .back-to-home {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #ed693def;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            margin-top: 2rem;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+
+        .back-to-home:hover {
+            background-color: #d45a2e;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .subpage-header {
+                height: 30vh;
+            }
+
+            .subpage-title {
+                font-size: 2.5rem;
+            }
+
+            .content-section {
+                padding: 40px 0;
+            }
+
+            .content-section h2 {
+                font-size: 1.8rem;
+            }
+
+            .content-section p {
+                font-size: 1rem;
+            }
+
+            .image-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav-menu">
+        <ul>
+            <li><a href="../index.html" class="home-link">Home Page</a></li>
+            <li><a href="intro.html">Thesis</a></li>
+            <li><a href="author.html">Author</a></li>
+            <li><a href="references.html">References</a></li>
+        </ul>
+    </nav>
+
+    <header class="subpage-header">
+        <div class="container">
+            <h1 class="subpage-title">Diaries</h1>
+            <p class="subpage-subtitle">Exploring the personal chronicles of the Mao and Post-Mao Eras</p>
+        </div>
+    </header>
+
+    <section class="content-section">
+        <div class="content-container">
+            <p>Diaries serve as invaluable artifacts for understanding history, offering a personal lens through which the complexities of societal shifts and ideological movements can be examined. They provide a unique perspective on the interplay between state directives and the everyday lives of ordinary individuals. In times of political upheaval or ideological transformation, diaries become essential tools for documenting not just personal experiences, but also the broader societal changes that shape those experiences.</p>
+            <p>The act of writing a diary often reflects a conscious effort to grapple with prevailing ideologies. For many individuals, especially during periods of revolution, these personal accounts were more than mere reflections; they were a means of engaging with the state's narratives. Writers frequently recorded their thoughts on revolutionary theory, which was often mandated by educational institutions or political organizations. This practice not only helped individuals internalize complex ideas but also testifies to how state ideology and rhetoric permeated the everyday life of an average layperson.</p>
+            <h2>Diaries - Mao Era Diaries</h2>
+            <p>The ideological weight of Mao Era diaries is significant. These diaries capture the revolutionary teachings of Mao Zedong and how people applied them in their daily lives. They provide insights into how individuals aligned their personal beliefs with revolutionary rhetoric. Through these accounts, we see the ways in which ordinary people interpreted and enacted Mao's principles, revealing their commitment to the revolutionary cause in the Mao Era.</p>
+            <div class="single-image">
+                <img src="../images5/diary-01.jpg" alt="Mao Era Diary Entry 1">
+                <p class="image-caption">The first page of the diary. The top text reads, "Gifted to: my kin and PLA soldier." The diary is dated July 24, 1972, and is stamped by the Revolutionary Leadership Committee of a village-level clinic.</p>
+            </div>
+
+            <div class="single-image">
+                <img src="../images5/diary-02.jpg" alt="Mao Era Diary Entry 2">
+                <p class="image-caption">This diary entry is dated October 22, 1976 (after Mao's death and the arrest of the Gang of Four). The journal entry on the right contains the learning notes of the Rectification Movement. Throughout the diary, the writer frequently quotes the original words of Mao.</p>
+            </div>
+
+            <div class="single-image">
+                <img src="../images5/diary-03.jpg" alt="Mao Era Diary Entry 3">
+                <p class="image-caption">The diary entry on the left page includes numbered nationalistic and revolutionary slogans. The diary on the right page is titled "Teachings of F. Engels." The first bullet point (numbered "1") reads, "The development of the proletariat, no matter in what time and place, is always realized through internal struggles. The correct path of our party [the CPC] is exactly derived and developed from such constant struggles with the wrong paths."</p>
+            </div>
+
+            <div class="single-image">
+                <img src="../images5/diary-04.jpg" alt="Mao Era Diary Entry 4">
+                <p class="image-caption">The left page is an entry regarding a four-character proverb in Chinese. The writer explains that this proverb was used by Premier Zhou in the 10th Congress of the CPC to describe the crisis experienced by the Soviet Union (socialist-imperialist) and the US (imperialist). The right page is the writer copying down the teachings of Mao and the teachings of Engels.</p>
+            </div>
+
+            <div class="single-image">
+                <img src="../images5/diary-05.jpg" alt="Mao Era Diary Entry 5">
+                <p class="image-caption">Both pages are the writer's learning notes on the "Reminiscences of Lenin" by N. K. Krupskaya.</p>
+            </div>
+
+
+            <h2>Diaries - Post-Mao Era Diaries</h2>
+            <p>The decline of ideology in China is evident in the evolution of diaries, which reflect changing societal values. After the reforms initiated in 1978, the state's revolutionary rhetoric diminished, leading to a shift in how individuals expressed their thoughts through the diary medium. It is also worth noting that with the rise of the digital age, traditional forms of documentation have transformed, allowing for new forms of critique and expression.</p>
+            <p>A diary that critiques post-1978 Chinese society and praises the Mao Era for its ideological clarity is presented below. These personal accounts serve as a reminder of the long-lasting influence of the Mao Era.</p>            
+            <div class="single-image">
+                <img src="../images5/diary-06.jpg" alt="Post-Mao Era Diary Entry 1">
+                <p class="image-caption">This diary entry (dated August 10, 2001) criticizes the post-1978 Chinese government as being made up of "traitors." The writer then critiques the jargon used by these traitors. "Socialism with Chinese characteristics" is what traitors and the capitalist-roaders in the party use to create a facade of socialism, but in reality, it aids the capitalist class to regain power over the proletariat. The author believes that with this, workers return to their state before the 1949 liberation. The writer also critiques "Reform and Opening Up" as "Actually, it is just discarding the good proletarian traditions of the Mao Era in favor of capitalist measures." The writer critiques "One Country Two Policies (in use with the Hong Kong SAR and the Macau SAR)" as really "one policy," where the proletariat surrenders to the bourgeoisie.</p>
+            </div>
+
+            <div class="single-image">
+                <img src="../images5/diary-07.jpg" alt="Post-Mao Era Diary Entry 2">
+                <p class="image-caption">The author continues to critique the post-1978 Chinese government as "revisionist." Though the writer does not explicitly use the phrase "revisionist," it is evident that he believes that Deng's and Jiang's governments have "surrendered to the capitalist-roaders and the bourgeoisie," bringing with them any last semblance of the proletarian state of the Mao Era.</p>
+            </div>
+
+            <div class="single-image">
+                <img src="../images5/diary-08.jpg" alt="Post-Mao Era Diary Entry 3">
+                <p class="image-caption">The critique continues. It is interesting to note that in the second-to-last bullet point, the author writes, "Deng Xiaoping is ungrateful: If Hua Guofeng was not there, would there be you, Deng Xiaoping?! If it wasn't for Hua's crushing of the Gang of Four, the Gang of Four would have crushed Deng Xiaoping."</p>
+            </div>
+
+            <div class="single-image">
+                <img src="../images5/diary-09.jpg" alt="Post-Mao Era Diary Entry 4">
+                <p class="image-caption">On the right page, the author composes a poem. An extract from the poem reads, "The environment got better, but pollution got worse. A minority got rich, but the majority got poorer. The economy got better, but corruption also increased. The market economy is alive, but prostitution increased..."</p>
+            </div>
+
+            <div class="single-image">
+                <img src="../images5/diary-10.jpg" alt="Post-Mao Era Diary Entry 5">
+                <p class="image-caption">On the right page, the author writes: "[I] miss the days of Chairman Mao.", "Deng Xiaoping is a modern traitor.", "The Deng Xiaoping Theory is only one word - money.", "[Deng and the post-Deng governments are] selling dog meat while hanging a sheep's head. They wave the red flag [socialism] while being opposed to the red flag [socialism]"...</p>
+            </div>
+
+            <div class="single-image">
+                <img src="../images5/diary-11.jpg" alt="Post-Mao Era Diary Entry 6">
+                <p class="image-caption">On the top right corner, the author writes, in red marker, "The Cultural Revolution is Good!" In the paragraph below is a transcription of a magazine article discussing the merits and demerits of the Cultural Revolution and whether or not it was "necessary." In the end, the author comments, "[We must] beware of revisionism and actively oppose revisionism," implying the author's great support for the Cultural Revolution.</p>
+            </div>
+            
+            <a href="../index.html" class="back-to-home">Home Page</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Mao Era Garbology. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html> 

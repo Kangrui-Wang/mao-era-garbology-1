@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exonumia - Mao Era Garbology</title>
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        /* 导航菜单样式 */
+        .nav-menu {
+            position: fixed;
+            top: 50%;
+            right: 30px;
+            transform: translateY(-50%);
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.98);
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            min-width: 200px;
+        }
+
+        .nav-menu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .nav-menu li {
+            margin-bottom: 15px;
+        }
+
+        .nav-menu li:last-child {
+            margin-bottom: 0;
+        }
+
+        .nav-menu a {
+            display: block;
+            padding: 12px 20px;
+            color: #4a4a4a;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+            white-space: nowrap;
+            border: 1px solid transparent;
+        }
+
+        .nav-menu a:hover {
+            background-color: #ed693def;
+            color: white;
+            border-color: #ed693def;
+            transform: translateX(-5px);
+        }
+
+        .nav-menu .home-link {
+            background-color: #ed693def;
+            color: white;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .nav-menu .home-link:hover {
+            background-color: #d45a2e;
+            color: white;
+            transform: translateX(-5px);
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: static;
+                transform: none;
+                margin: 20px auto;
+                text-align: center;
+                max-width: 90%;
+            }
+
+            .nav-menu ul {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+
+            .nav-menu li {
+                margin-bottom: 0;
+            }
+
+            .nav-menu .home-link {
+                margin-bottom: 0;
+            }
+
+            .nav-menu a {
+                padding: 10px 15px;
+                font-size: 1rem;
+            }
+        }
+
+        /* 子页面特定样式 */
+        .subpage-header {
+            height: 40vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+                        url('../images/sun-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .subpage-title {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .subpage-subtitle {
+            font-size: 1.2rem;
+            font-weight: 300;
+        }
+
+        .content-section {
+            padding: 60px 0;
+            background-color: #fff;
+        }
+
+        .content-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .content-section h2 {
+            font-size: 2rem;
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+        }
+
+        .content-section p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 1.5rem;
+        }
+
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin: 2rem 0;
+        }
+
+        .image-grid img {
+            width: 100%;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .image-grid img:hover {
+            transform: scale(1.05);
+        }
+
+        .back-to-home {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #ed693def;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            margin-top: 2rem;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+
+        .back-to-home:hover {
+            background-color: #d45a2e;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .subpage-header {
+                height: 30vh;
+            }
+
+            .subpage-title {
+                font-size: 2.5rem;
+            }
+
+            .content-section {
+                padding: 40px 0;
+            }
+
+            .content-section h2 {
+                font-size: 1.8rem;
+            }
+
+            .content-section p {
+                font-size: 1rem;
+            }
+
+            .image-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .image-section {
+            margin-bottom: 20px;
+        }
+
+        .image-section img {
+            width: 100%;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .image-section img:hover {
+            transform: scale(1.05);
+        }
+
+        .image-caption {
+            margin-top: 10px;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #555;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav-menu">
+        <ul>
+            <li><a href="../index.html" class="home-link">Home Page</a></li>
+            <li><a href="intro.html">Thesis</a></li>
+            <li><a href="author.html">Author</a></li>
+            <li><a href="references.html">References</a></li>
+        </ul>
+    </nav>
+
+    <header class="subpage-header">
+        <div class="container">
+            <h1 class="subpage-title">Exonumia</h1>
+            <p class="subpage-subtitle">Exploring the scrips, rationing stamps, and tickets from the Mao Era</p>
+        </div>
+    </header>
+
+    <section class="content-section">
+        <div class="content-container">
+            <p>During China's planned economy period, a time aimed to mitigate the impact of the shortage of goods (which it is important to stress that scholarly literature establishes that, at least in the early stages, it was the shortage of goods that necessitated a planned economy, and not that a planned economy resulted in shortages), the government implemented a system of planned supply to ensure a balance between supply and demand. Economically, to guarantee that both urban and rural residents had access to essential daily necessities such as food, clothing, and other basic items, the state issued specialized purchase vouchers based on population figures. These vouchers included grain tickets and cloth tickets, which, along with other items of similar nature, are classified under the umbrella term “exonumia”. </p>
+            <p>This system was crucial for maintaining order in a time when resources were limited. Each household received a certain quota, enabling them to purchase only what was allocated. In all fairness, this method of distribution ensured that everyone received basic supplies. However, a rigid command economy meant that, in many cases, the needs and wants of the average citizen—referred to as "consumers" in economic terms—could not be met if those specific needs were not included in the state’s planning. As the economy and its productive forces evolved, this system limited the variety and quantity of materials available, significantly restraining the improvement of living standards for the Chinese people.</p>
+            <p>This lack of responsiveness to consumer demands led to widespread dissatisfaction, as citizens struggled to access essential goods. The restrictive nature of the command economy stifled innovation and entrepreneurship (which during most of the Mao Era was considered to be against the “tide of history”). Ultimately, the potential for a more dynamic and responsive economic framework remained unrealized. For this reason, government-related exonumia (particularly rationing tickets) gradually faded during the 1990s, specifically after Deng’s Southern Tour of 1992 that called for the expansion of the private sector. </p>
+            <p>This section will also explore other “tickets” that are not in the traditional exonumia sense. </p>
+            <h2>Exonumia - Finance and the Economy</h2>
+            <p>Finance and economics in the Mao and Post-Mao Eras were turbulent, and its evolvement was guided by the changing economic policies and the balancing between “private” and “public” in the transitionary state of late capitalism (which to a large extent was not completely realized and fully developed by its official termination in 1956) and early socialism. </p>
+            <p>From 1949 to 1953, the PR China was still in the momentum of the capitalistic development of the Republic of China, and thus, at least in the cities (the rural areas were subject to the CPC’s Land Reforms), capitalism, in all its forms, continued to develop. Though there was widespread fear among the bourgeoisie that the new communist government would take forceful measures against them, this was not the case for the early years of the PR China.</p>
+            <div class="image-section">
+                <img src="../images3/exonumia-scrips-000.jpg" alt="Currency Collection">
+                <p class="image-caption">An advertisement for a private utility store in Shanghai in the 1950s (The date is evident as the Chinese characters have yet to be simplified and the characters are still read from right to left).</p>
+            </div>
+            <div class="image-section">
+                <img src="../images3/exonumia-scrips-001.jpg" alt="Currency and Scrip from Mao Era">
+                <p class="image-caption">A stock holding at the "supply and marketing cooperatives" dated 1952. The holders of stock at virtually all co-ops during the 1950s could collect dividends accordingly. This was the approach that China took in collectivizing the economy, where in most cases, instead of forceful seizure and redistribution, the state would gradually buy out the private sector.</p>
+            </div>
+            <p>In 1953, after the successful completion of the Rural Land Reform, the CPC turned its attention to further transforming the economy and enabling China's advancement into the early phases of socialism. From 1953 to 1956, China underwent the Three Great Remolding, during which agriculture, the handicraft industry, and the capitalist industry and commerce were gradually transformed to collective ownership or a hybrid between private and public ownership. </p>
+            <p>From 1958 to 1962, China entered the Great Leap Forward. The Great Leap Forward was the Chinese attempt to accelerate industrialization and agricultural collectivization and mechanization. However, its accelerated nature sowed the seeds for its inconsiderateness that eventually led to economic disruption and hardships, especially when combined with the Three Years of Natural Disaster (1959-1961). </p>
+            <p>Though a period of economic revitalization, symbolized by the Seven Thousand Cadres Conference, followed the termination of the Great Leap Forward, it was relatively brief and was again disrupted with the launching of the Cultural Revolution (1966-1977). Scholarship commonly depicts the 10 years of the Cultural Revolution as disastrous for the economy. The economy was heavily involved in politics, and many politically undesirable industries and economic activities were terminated or heavily restricted. Despite this widespread conception of economic downturn, for most years, the economy was able to grow and key scientific breakthroughs such as the hydrogen bomb of 1967 and the Dong Fang Hong 1 satellite of 1970.</p>
+            <div class="image-section">
+                <img src="../images3/exonumia-scrips-002.jpg" alt="Third Series RMB Notes">
+                <p class="image-caption">A cash-transfer check for material purchases dated February 2, 1972. The the top of the check is a Quotation of Chairman Mao that reads, "Tighten revolution, speed-up production, speed-up work, and speed-up the preparation against war". The check details a purchase of agircultural tools by one factory from another.</p>
+            </div>
+            
+            <div class="image-section">
+                <img src="../images3/exonumia-scrips-003.jpg" alt="RMB Currency Design">
+                <p class="image-caption">A contract that is official titled "Contract for the Herding of Cows". The contract is dated March 27, 1971. The top of the contract contains a typical Cultural Revolution "Highest Command" by Mao that reads, "Out responsibility" is to be responsible to the people. The lower half of the contact detials the exact timeframe and payment of the herding of these cows.</p>
+            </div>
+            <div class="image-section">
+                <img src="../images3/exonumia-scrips-004.jpg" alt="RMB Currency Design">
+                <p class="image-caption">A state-run "supply and marketing cooperative" (1).</p>
+            </div>
+            <div class="image-section">
+                <img src="../images3/exonumia-scrips-005.jpg" alt="RMB Currency Design">
+                <p class="image-caption">A state-run "supply and marketing cooperative" (2).</p>
+            </div>
+            
+            <h2>Exonumia - Rationing Stamps</h2>    
+            <p>In the context of Mao Zedong's era, the Chinese economy was characterized by severe material shortages and limitations, which necessitated the establishment of a rationing system for essential goods and services. This system encompassed a wide range of items, including food, clothing, and household necessities, effectively regulating access and distribution in a context of scarcity. Citizens were allotted a specific quota of rationing stamps that dictated what they could purchase, creating a framework where basic needs were met through a controlled allocation process rather than market dynamics. This system was emblematic of the central planning approach of the time, reflecting the challenges of a primarily agrarian economy striving for industrialization.</p>
+            <p>However, with the onset of the Reform and Opening Up policy in 1978, China began to undergo a fundamental economic transformation. As production levels increased and the economy shifted toward a market-oriented model, the ticketing system became increasingly obsolete. By the 1990s, rising production capabilities and improved supply chains rendered the ticketing system unnecessary. The gradual phasing out of this system marked a significant transition in Chinese society, symbolizing a move towards greater consumer freedom and the burgeoning market economy that would define the country’s rapid growth in the following decades.</p>            
+            <div class="image-section">
+                <img src="../images3/exonumia-rationing-001.jpg" alt="Transportation Tickets">
+                <p class="image-caption">Yunnan Textiles Ticket, 5 Chinese Inches, dated 1983. Issued by the Ministry of Commerce of Yunnan Province.</p>
+            </div>
+            
+            <div class="image-section">
+                <img src="../images3/exonumia-rationing-002.jpg" alt="Fourth Series RMB">
+                <p class="image-caption">Qinghai Province Grain Tickets, half a kilo, dated 1975.</p>
+            </div>
+            
+            <div class="image-section">
+                <img src="../images3/exonumia-rationing-003.jpg" alt="Rationing System">
+                <p class="image-caption">All-China Gasoline Ticket, 50 kilograms, dated 1984.</p>
+            </div>
+            
+            <div class="image-section">
+                <img src="../images3/exonumia-rationing-004.jpg" alt="Fifth Series Currency">
+                <p class="image-caption">Shunde County Cooking Oil Tickets, 4 liang (0.2 kilograms), dated November, 1982 (the ticket is valid for the issuing month only).</p>
+            </div>
+            
+            <div class="image-section">
+                <img src="../images3/exonumia-rationing-005.jpg" alt="Rationing System Details">
+                <p class="image-caption">Yunnan Province Urea Ticket, 5 kilograms. The purple stamp signifed that the ticket has been "discarded".</p>
+            </div>
+            
+            <div class="image-section">
+                <img src="../images3/exonumia-rationing-006.jpg" alt="Economic Control Measures">
+                <p class="image-caption">Guilin City (within Guangxi Province) Coal Tickets, 24 pieces of coal, dated November, 1992.</p>
+            </div>
+            
+            <div class="image-section">
+                <img src="../images3/exonumia-rationing-007.jpg" alt="Rationing Stamps Collection">
+                <p class="image-caption">Daxin County Hotel Ticket, 7 Jiao (0.7 Yuan), dated April 19, 1971.</p>
+            </div>
+            
+            <div class="image-section">
+                <img src="../images3/exonumia-rationing-008.jpg" alt="Supply Control System">
+                <p class="image-caption">Guangxi Zhuang Autonomous Region Textile Tickets, each ticket is worth 5 Chinese Feet, dated 1973.</p>
+            </div>
+            
+            <div class="image-section">
+                <img src="../images3/exonumia-rationing-009.jpg" alt="Rationing Documentation">
+                <p class="image-caption">Xingyi Area Diesel Tickets, 50 kilograms, dated 197_.</p>
+            </div>
+            
+            <div class="image-section">
+                <img src="../images3/exonumia-rationing-010.jpg" alt="Economic Planning Materials">
+                <p class="image-caption">Gaoming County City and Towns Meat Ticket, no specified quantity, dated fourth quarter of 1984.</p>
+            </div>
+            
+            <div class="image-section">
+                <img src="../images3/exonumia-rationing-011.jpg" alt="Rationing System Overview">
+                <p class="image-caption">Kunming City (within Yunnan Province), 12 District Bean Products Ticket, no specified quantity, dated 1984.</p>
+            </div>
+
+            <h2>Exonumia - "Tickets"</h2>
+            <p>Though tickets are not typically categorized as exonumia in the same vein as the other aforementioned artifacts, they nonetheless occupy a significant place within the broader context of exonumia, particularly in the setting of Mao Era Chinese society. These tickets were not merely functional items; they represented a complex system of resource allocation during a time of scarcity and central planning. The tickets encompassed a variety of forms, from straightforward vouchers that allowed citizens to purchase essential goods like rice or cooking oil, to more symbolic tickets that conveyed political or social status.</p>
+            <p>For instance, certain tickets could grant access to exclusive events or resources, symbolizing the implicit ideological and social hierarchies prevalent during that period. In this way, tickets served as more than just practical tools for navigating daily life; they were imbued with meaning and significance, reflecting the political climate and societal values of the time. The use of tickets highlighted the intricacies of life of the Mao Era, where access to basic necessities was tightly controlled and often tied to one’s social standing. Thus, while tickets may not fit neatly into traditional definitions of exonumia, they represent a unique intersection of utility and symbolism within the historical narrative of China during the Mao era.</p>            
+            <div class="image-section">
+                <img src="../images3/exonumia-tickets-001.jpg" alt="Exonumia Collection">
+                <p class="image-caption">Siyang Commune Member Travel Ticket (as proof that the holder is a member of the commune and is allowed to travel), dated 1979. The bottom text is a "Highest Command" that reads, "We come from the five lakes and 4 seas [meaning around China], but we are united with a common revolutionary goal, and we thus walk together".</p>
+            </div>
+            
+            <div class="image-section">
+                <img src="../images3/exonumia-tickets-002.jpg" alt="Commemorative Items">
+                <p class="image-caption">CPC Member Travel "Ticket", dated 1958. The ticket is a "ticket" in the sense that it is a travel reference letter that provides proof for the holder's membership in the CPC and travel destination.</p>
+            </div>
+            
+            <div class="image-section">
+                <img src="../images3/exonumia-tickets-003.jpg" alt="Remembrance Items">
+                <p class="image-caption">Nanning City Car Ticket, 1 Yuan. The top "Highest Command" reads, "We must fight private ownership and criticize the revisionists."</p>
+            </div>
+            
+            <div class="image-section">
+                <img src="../images3/exonumia-tickets-004.jpg" alt="Worker-Peasant-Soldier Theme">
+                <p class="image-caption">Train Ticket for a Child, 0.6 Yuan.</p>
+            </div>
+
+            <div class="image-section">
+                <img src="../images3/exonumia-tickets-005.jpg" alt="Worker-Peasant-Soldier Theme">
+                <p class="image-caption">Yunnan Province Bus Ticket for a Child of a Military member, 5 Yuan, dated June 28, 1966. The ticket is from Qiao Jia to Da Qiao.</p>
+            </div>
+
+            <h2>Exonumia - "in Modernity"</h2>
+            <p>Rationing in China officially ended in the 1990s, marking a significant shift in the country’s economic landscape as it transitioned from a command economy to a more market-oriented system. Following the economic reforms initiated in 1978, China experienced rapid growth, particularly after pivotal moments in 1992 and 2001, when it joined the World Trade Organization (WTO). These milestones catalyzed a transformation that encouraged foreign investment, increased production capacities, and expanded consumer markets.</p>
+            <div class="image-section">
+                <img src="../images3/exonumia-m-001.jpg" alt="Modern Applications">
+                <p class="image-caption">China's entry into the WTO (World Trade Organization) in 2001. (Source: <a href="https://www.hinrichfoundation.com/research/article/wto/china-s-wto-entry-financial-crisis-lessons-for-the-future/">Hinrich Foundation</a>)</p>
+            </div>
+            <p>As a result, the nature of exonumia—such as tickets, vouchers, and tokens—changed dramatically. No longer do these items reflect the elements of the command economy or carry the ideological undertones that characterized the Mao era. Instead, modern exonumia have evolved into symbols of consumer choice and economic freedom, often associated with entertainment, commerce, and tourism. For instance, theme park tickets or shopping vouchers now embody the spirit of leisure and consumerism, in stark contrast to the utilitarian purpose of ration tickets of the past. This shift signifies not just a change in economic policy but also a profound transformation in societal values, where personal choice and market dynamics have taken precedence over state control and ideological conformity.</p>            
+
+            <a href="../index.html" class="back-to-home">Home Page</a>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Mao Era Garbology. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html> 

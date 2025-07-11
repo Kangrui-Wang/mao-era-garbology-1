@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>References - Mao Era Garbology</title>
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        /* 导航菜单样式 */
+        .nav-menu {
+            position: fixed;
+            top: 50%;
+            right: 30px;
+            transform: translateY(-50%);
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.98);
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            min-width: 200px;
+        }
+
+        .nav-menu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .nav-menu li {
+            margin-bottom: 15px;
+        }
+
+        .nav-menu li:last-child {
+            margin-bottom: 0;
+        }
+
+        .nav-menu a {
+            display: block;
+            padding: 12px 20px;
+            color: #4a4a4a;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+            white-space: nowrap;
+            border: 1px solid transparent;
+        }
+
+        .nav-menu a:hover {
+            background-color: #ed693def;
+            color: white;
+            border-color: #ed693def;
+            transform: translateX(-5px);
+        }
+
+        .nav-menu .home-link {
+            background-color: #ed693def;
+            color: white;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .nav-menu .home-link:hover {
+            background-color: #d45a2e;
+            color: white;
+            transform: translateX(-5px);
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: static;
+                transform: none;
+                margin: 20px auto;
+                text-align: center;
+                max-width: 90%;
+            }
+
+            .nav-menu ul {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+
+            .nav-menu li {
+                margin-bottom: 0;
+            }
+
+            .nav-menu .home-link {
+                margin-bottom: 0;
+            }
+
+            .nav-menu a {
+                padding: 10px 15px;
+                font-size: 1rem;
+            }
+        }
+
+        /* 子页面特定样式 */
+        .subpage-header {
+            height: 40vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+                        url('../images/References_Banner.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .subpage-title {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .subpage-subtitle {
+            font-size: 1.2rem;
+            font-weight: 300;
+        }
+
+        .content-section {
+            padding: 60px 0;
+            background-color: #fff;
+        }
+
+        .content-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .content-section h2 {
+            font-size: 2rem;
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+        }
+
+        .content-section p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 1.5rem;
+        }
+
+        .reference-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .reference-item {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #ed693def;
+        }
+
+        .reference-item h3 {
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+
+        .reference-item p {
+            margin-bottom: 0.5rem;
+        }
+
+        .reference-item .citation {
+            font-style: italic;
+            color: #666;
+        }
+
+        .back-to-home {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #ed693def;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            margin-top: 2rem;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+
+        .back-to-home:hover {
+            background-color: #d45a2e;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .subpage-header {
+                height: 30vh;
+            }
+
+            .subpage-title {
+                font-size: 2.5rem;
+            }
+
+            .content-section {
+                padding: 40px 0;
+            }
+
+            .content-section h2 {
+                font-size: 1.8rem;
+            }
+
+            .content-section p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav-menu">
+        <ul>
+            <li><a href="../index.html" class="home-link">Home Page</a></li>
+            <li><a href="intro.html">Thesis</a></li>
+            <li><a href="author.html">Author</a></li>
+            <li><a href="references.html">References</a></li>
+        </ul>
+    </nav>
+
+    <header class="subpage-header">
+        <div class="container">
+            <h1 class="subpage-title">References and Further Readings</h1>
+            <p class="subpage-subtitle">Works of Marxist-Leninist Theory, Works of Mao Tse-tung Thought, and Related Academic Resources</p>
+        </div>
+    </header>
+
+    <section class="content-section">
+        <div class="content-container">
+            <p>To fully comprehend the contents of Mao Era Garbology and to pursue further studies of Modern Chinese History (post-1949), knowers must be familiar with the broader political and ideological context(s) of revolutionary China. Simply interpreting the developments and policies of China, particularly those that relate to Mao, with generic approaches of history and political science often fails to derive satisfactory conclusions and produces insights that are rather "non-insightful."</p>
+            <p>This necessitates that researchers be familiar with the broader ideas of "Socialism" (and its more advanced form "Communism"), Marxism-Leninism, and the Mao Tse-tung Thought as the lens through which modern Chinese history will be interpreted. For instance, in the evaluation of the conflicts between Mao and Liu (Liu Shaoqi) in the 1960s, it is vital to understand the underlying debate and disagreements between Mao and Liu regarding the issue of "how can socialism be built in a country?" instead of attributing the event as a "struggle for power" in the upper echelons of the Chinese political edifice.</p>
+            <p>Granted, scholarly works of academia should not be neglected, insofar as they furnish rigorous evaluations and critical analyses of historical phenomena. By interrogating the past through methodological and theoretical frameworks, such works yield indispensable insights — not merely in reconstructing events, but in illuminating the epistemic structures through which these issues might be productively examined. It is encouraged that researchers seek a wide array of sources to find nuances and subtleties in history, as both are interwoven into the fundamental building blocks of history as a discipline.</p>
+            <p>Thus, the sources below are both what Mao Era Garbology references in the production of its knowledge and what Mao Era Garbology recommends that researchers be familiar with to invigorate their understanding of Modern Chinese History, particularly the Mao and "Mao-vicinity" Era(s).</p>
+            <h2>Works of Marxism-Leninism Theory</h2>
+            <ul class="reference-list">
+                <li class="reference-item">
+                    <h3>Views of the State, Revolution, and the Socialist State</h3>
+                    <p class="citation">Lenin. "The State and Revolution" 1918.</p>
+                    <p>This foundational work discusses the Marxist-Leninist views on the role of state and its "withering away" in the construction of a socialist state.</p>
+                </li>
+
+                <li class="reference-item">
+                    <h3>Introduction to Marxism</h3>
+                    <p class="citation">Marx, Engels. "The Communist Manifesto" 1848.</p>
+                    <p>This work is a revolutionary pamphlet by Karl Marx and Friedrich Engels. Published in 1848, it critiques capitalism and class struggle while advocating for proletarian revolution. It is universally regarded as the foundational text of Marxist-Leninist theory.</p>
+                </li>
+
+                <li class="reference-item">
+                    <h3>Party Organization and Revolutionary Theory</h3>
+                    <p class="citation">Lenin. "What is To Be Done?" 1902.</p>
+                    <p>This seminal work by Lenin discusses the role of a revolutionary party and the importance of professional revolutionaries in the struggle for socialism. It outlines the theoretical foundations for the Bolshevik party organization.</p>
+                </li>
+
+                <li class="reference-item">
+                    <h3>Critique of Socialist Programs</h3>
+                    <p class="citation">Marx. "Critique of the Gotha Program" 1875.</p>
+                    <p>Marx's critical analysis of the German Socialist Workers' Party's program, discussing the transition from capitalism to communism and the principles of socialist distribution.</p>
+                </li>
+
+                <li class="reference-item">
+                    <h3>Comprehensive Exposition of Marxism</h3>
+                    <p class="citation">Engels. "Anti-Dühring" 1878.</p>
+                    <p>Also known as "Herr Eugen Dühring's Revolution in Science," this work by Engels provides a comprehensive exposition of Marxist philosophy, political economy, and scientific socialism.</p>
+                </li>
+            </ul>
+
+            <h2>Works of Mao Tse-tung Thought</h2>
+            <p>All the works below are "extracts" from the Selected Works of Mao Tse-tung. For researchers that are deeply interested in the study of Mao Era China, it is highly recommended that researchers be familiar with the central teachings of the texts.</p>
+            <ul class="reference-list">
+                <li class="reference-item">
+                    <h3>On Practice</h3>
+                    <p class="citation">Mao Tse-tung. "On Practice" 1937.</p>
+                    <p>This philosophical work discusses the relationship between knowledge and practice, emphasizing the importance of practice in the development of knowledge and the verification of truth.</p>
+                </li>
+
+                <li class="reference-item">
+                    <h3>On Contradictions</h3>
+                    <p class="citation">Mao Tse-tung. "On Contradictions" 1937.</p>
+                    <p>A fundamental work of Maoist philosophy that analyzes the nature of contradictions in society and their role in social development, building upon Marxist dialectical materialism.</p>
+                </li>
+
+                <li class="reference-item">
+                    <h3>On the Correct Handling of Contradictions Among the People</h3>
+                    <p class="citation">Mao Tse-tung. "On the Correct Handling of Contradictions Among the People" 1957.</p>
+                    <p>This work distinguishes between antagonistic and non-antagonistic contradictions in socialist society and discusses methods for resolving conflicts among the people.</p>
+                </li>
+
+                <li class="reference-item">
+                    <h3>On the People's Democratic Dictatorship</h3>
+                    <p class="citation">Mao Tse-tung. "On the People's Democratic Dictatorship" 1949.</p>
+                    <p>Written on the eve of the founding of the People's Republic of China, this work outlines the nature of the new state and the role of different classes in the people's democratic dictatorship.</p>
+                </li>
+
+                <li class="reference-item">
+                    <h3>May 16 Notification</h3>
+                    <p class="citation">Mao Tse-tung. "May 16 Notification" 1966.</p>
+                    <p>This document marked the official beginning of the Cultural Revolution, outlining the need to combat "representatives of the bourgeoisie" who had "sneaked into the Party, the government, the army, and various cultural circles."</p>
+                </li>
+
+                <li class="reference-item">
+                    <h3>On the Ten Major Relationships</h3>
+                    <p class="citation">Mao Tse-tung. "On the Ten Major Relationships" 1956.</p>
+                    <p>This speech analyzes ten key relationships in socialist construction, including the relationship between industry and agriculture, central and local authorities, and Chinese and foreign elements.</p>
+                </li>
+            </ul>
+
+            <h2>Academic Journals, Books, and Digital Resources</h2>
+            <ul class="reference-list">
+                <li class="reference-item">
+                    <h3>Mao and the Post-Mao Era</h3>
+                    <p class="citation">Meisner, Maurice. "Mao and the Post-Mao Era" 1986.</p>
+                    <p>A comprehensive analysis of Mao's legacy and its impact on post-Mao China, examining the continuities and changes in Chinese politics and society.</p>
+                </li>
+
+                <li class="reference-item">
+                    <h3>PRC History Source Transparency Project</h3>
+                    <p class="citation">Brown, Jeremy. "PRC History Source Transparency" Simon Fraser University.</p>
+                    <p>A pioneering digital humanities project that provides access to primary sources from the Mao era, including documents gathered from flea markets and other unconventional sources. This project builds upon Michael Schoenhals' concept of "Sinological garbology" to make historical sources more accessible to researchers.</p>
+                    <p>Website: <a href="https://www.sfu.ca/prchistorytransparency.html" target="_blank">https://www.sfu.ca/prchistorytransparency.html</a></p>
+                </li>
+            </ul>
+
+            <div class="contact-section">
+                <h2>Contribute to Our References</h2>
+                <p>We welcome suggestions for additional references and resources that could enhance our collection. If you have relevant academic works, digital resources, or research tools to recommend, please contact us.</p>
+                <p class="contact-email">Email: <a href="mailto:kw_7292@163.com">kw_7292@163.com</a></p>
+            </div>
+            
+            <a href="../index.html" class="back-to-home">Home Page</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Mao Era Garbology. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html> 

@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Numismatics - Mao Era Garbology</title>
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        /* 导航菜单样式 */
+        .nav-menu {
+            position: fixed;
+            top: 50%;
+            right: 30px;
+            transform: translateY(-50%);
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.98);
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            min-width: 200px;
+        }
+
+        .nav-menu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .nav-menu li {
+            margin-bottom: 15px;
+        }
+
+        .nav-menu li:last-child {
+            margin-bottom: 0;
+        }
+
+        .nav-menu a {
+            display: block;
+            padding: 12px 20px;
+            color: #4a4a4a;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+            white-space: nowrap;
+            border: 1px solid transparent;
+        }
+
+        .nav-menu a:hover {
+            background-color: #ed693def;
+            color: white;
+            border-color: #ed693def;
+            transform: translateX(-5px);
+        }
+
+        .nav-menu .home-link {
+            background-color: #ed693def;
+            color: white;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .nav-menu .home-link:hover {
+            background-color: #d45a2e;
+            color: white;
+            transform: translateX(-5px);
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: static;
+                transform: none;
+                margin: 20px auto;
+                text-align: center;
+                max-width: 90%;
+            }
+
+            .nav-menu ul {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+
+            .nav-menu li {
+                margin-bottom: 0;
+            }
+
+            .nav-menu .home-link {
+                margin-bottom: 0;
+            }
+
+            .nav-menu a {
+                padding: 10px 15px;
+                font-size: 1rem;
+            }
+        }
+
+        /* 子页面特定样式 */
+        .subpage-header {
+            height: 40vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+                        url('../images/spring-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .subpage-title {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .subpage-subtitle {
+            font-size: 1.2rem;
+            font-weight: 300;
+        }
+
+        .content-section {
+            padding: 60px 0;
+            background-color: #fff;
+        }
+
+        .content-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .content-section h2 {
+            font-size: 2rem;
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+        }
+
+        .content-section p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 1.5rem;
+        }
+
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin: 2rem 0;
+        }
+
+        .image-grid img {
+            width: 100%;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .image-grid img:hover {
+            transform: scale(1.05);
+        }
+
+        .back-to-home {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #ed693def;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            margin-top: 2rem;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+
+        .back-to-home:hover {
+            background-color: #d45a2e;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .subpage-header {
+                height: 30vh;
+            }
+
+            .subpage-title {
+                font-size: 2.5rem;
+            }
+
+            .content-section {
+                padding: 40px 0;
+            }
+
+            .content-section h2 {
+                font-size: 1.8rem;
+            }
+
+            .content-section p {
+                font-size: 1rem;
+            }
+
+            .image-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .image-grid div:hover div {
+            opacity: 1;
+        }
+        .image-grid div:hover img {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav-menu">
+        <ul>
+            <li><a href="../index.html" class="home-link">Home Page</a></li>
+            <li><a href="intro.html">Thesis</a></li>
+            <li><a href="author.html">Author</a></li>
+            <li><a href="references.html">References</a></li>
+        </ul>
+    </nav>
+
+    <header class="subpage-header">
+        <div class="container">
+            <h1 class="subpage-title">Numismatics</h1>
+            <p class="subpage-subtitle">Exploring the monetary history of the Mao Era of Chinese History</p>
+        </div>
+    </header>
+
+    <section class="content-section">
+        <div class="content-container">
+            <p>Numismatics, in narrow terms, refers to the collection and study of coins, paper currency, and other closely related pieces of exonumia. In broader terms, it could be expanded to include medals, orders, and badges, though Mao Era Garbology does not adopt this latter definition.</p>
+            <p>The study of numismatics offers collectors and historians a unique lens through which to examine the multifaceted dimensions of history. On one level, coins and currency serve as tangible records of economic development, providing insight into "monetary history" by revealing patterns of trade, inflation, and fiscal policy across time periods. The materials, denominations, and minting techniques employed in coinage can also be indicative of the economic priorities and technological advancements of a society. Beyond their economic significance, numismatic pieces also function as cultural artifacts, being purposefully crafted to reflect the social and political Zeitgeist of their era by the authorities. The artisanal details such as inscriptions, symbols, and iconography can delineate societal values, political agendas, and historical events — whether celebrating victories, promoting unity, or commemorating certain events. Even the choice of imagery, such as allegorical representations or national emblems, can reveal how a state wished to be perceived both domestically and internationally.</p>
+            <p>The official currency of the People's Republic of China is the <b>Renminbi (RMB)</b>, which translates to "the people's currency." The RMB operates on a decimal system, with values increasing in multiples of ten. It consists of three main units: the Fen (cent), the Jiao (equivalent to a dime, or 10 Fen), and the Yuan (equivalent to a dollar, or 10 Jiao). This tiered structure facilitates everyday transactions and reflects China's modern monetary system.</p>
+            <h2>Numismatics - The Third Series of RMB 1962</h2>
+            <p>The planning of the Third Set (Series) of RMB began in 1955 to replace the Second Set (Series) of RMB. The planning progress accelerated in 1959 after the People's Bank of China made a formal presentation to the State Council. The Third Series of RMB was finalized and then progressively introduced to the market from 1962 to its gradual replacement by the Fourth Series of RMB in 1987, eventually being completely phased out of the market in 2000 with a circulation history of 38 years.</p>
+            <p>The Third Series of RMB included the following denominations: 1 Jiao, 2 Jiao, 5 Jiao, 1 Yuan, 2 Yuan, 5 Yuan, and 10 Yuan. Currency with the Fen (cent) unit, namely 1 Fen, 2 Fen, and 5 Fen, from the Second Series of RMB continued in circulation and print, but as it was not considered a new design, it is not in the official catalogue for the Third Series of the RMB. Additionally, minted coins were also a part of the Third Series of RMB, with denominations of 1 Fen, 2 Fen, and 5 Fen. Another series of minted coins appeared briefly in the 1980s known as the "Great Wall Coins" (Chinese pinyin "Changcheng Bi") that featured the Great Wall of China as its reverse engravings on its 1 Yuan Coins. It featured the denominations of 1 Jiao, 2 Jiao, 5 Jiao, and the titular 1 Yuan.</p>
+            <p>Comparatively, the Third Series of RMB possesses stark aesthetic orientational qualities that are reflective of the socio-political zeitgeist as well as the political agenda of the CPC in the 1960s, the time of its release.</p>
+            <p>The portrayal of labor, intended to glorify the working class ("proletariat" in Marxist gobbledygook) was a common theme among the Third Series of RMB, reflecting how Mao, and other members of the CPC, intended to advance the construction of socialism via accentuating the glory in labor and in one's class label being a progressive "proletariat". This was in line with the strengthening of the democratic people's dictatorship during the 1960s and carrying on into the 1970s, where Mao and the CPC stressed that the proletariat must retain control over the means of production and ownership over the state machine to prevent revisionism by reinstating purity of Marxism-Leninism in China.</p>
+            <div class="image-grid" style="margin-bottom: 30px;">
+                <div style="position: relative; height: 550px; overflow: hidden;">
+                    <img src="../images9/rmb-third-1.jpg" alt="1 Yuan note from Third Series RMB" style="width: 100%; height: 100%; object-fit: contain; border-radius: 8px; transition: all 0.3s ease; background-color: #f5f5f5;">
+                    <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.7); color: white; padding: 20px; opacity: 0; transition: opacity 0.3s; display: flex; align-items: center; justify-content: center; text-align: center; border-radius: 8px;">
+                        <p style="margin: 0; font-size: 1.1rem;">1 Yuan note featuring industrial workers</p>
+                    </div>
+                </div>
+                <div style="position: relative; height: 550px; overflow: hidden;">
+                    <img src="../images9/rmb-third-2.jpg" alt="5 Yuan note from Third Series RMB" style="width: 100%; height: 100%; object-fit: contain; border-radius: 8px; transition: all 0.3s ease; background-color: #f5f5f5;">
+                    <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.7); color: white; padding: 20px; opacity: 0; transition: opacity 0.3s; display: flex; align-items: center; justify-content: center; text-align: center; border-radius: 8px;">
+                        <p style="margin: 0; font-size: 1.1rem;">5 Yuan note with agricultural theme</p>
+                    </div>
+                </div>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-top: 15px;">
+                <p style="margin: 0; text-align: center; font-size: 1.1rem; color: #333;">Top to Bottom: <br> 1 Jiao, 2 Jiao, 5 Jiao</p>
+                <p style="margin: 0; text-align: center; font-size: 1.1rem; color: #333;">Top to Bottom: <br> 1 Yuan, 2 Yuan, 5 Yuan, 10 Yuan</p>
+            </div>
+            <p>    </p>
+             <p>On the individual level, each denomination bears a unique printed image: </p>
+            <ul style="list-style-type: disc; margin-left: 20px; margin-bottom: 20px;">
+                <li><b>1 Jiao</b> - Farmers walking out into the fields to begin labor. </li>
+                <li><b>2 Jiao</b> - The Wuhan Yangtze River Bridge that began construction in 1955 and completed construction in 1957. The Wuhan Yangtze River Bridge was the first bridge that spanned across the Yangtze River, bringing an end to the era where railways in northern China and southern China had to be connected via cross-Yangtze-River ferries. The completion of the bridge was seen as a major industrial achievement of socialist construction, greatly boosting national morale and confidence in the early Republic years.</li>
+                <li><b>5 Jiao</b> - Female textile workers working in the factories. The portrayal of female figures symbolizes how the status of women underwent fundamental changes in the Mao era – women were increasingly liberated from their domestic responsibilities and highly encouraged to pursue industrial work on equal grounds as their male counterparts. However, there still existed a disparity with the industrial work that the two genders pursued, in that it was more common for men to work in "harder" industries such as metalwork or manufacturing while women found work in "softer" industries such as the textile industry.</li>
+                <li><b>1 Yuan</b> - Female tractor driver in the agricultural sector. Though there was still a gender disparity in the industrial sectors, it was no longer an issue in the agricultural sector, where women and men stood on equal obligations, responsibilities, and opportunities to work the same as men.</li>
+                <li><b>2 Yuan</b> - A continuation of socialist realism in portraying the average worker.</li>
+                <li><b>5 Yuan</b> - A steelworker meticulously attending his work in steelmaking. Steel production has been, and still remains, a major indicator of the industrial capabilities of a country. As early as 1958, during the Great Leap Forward, Mao proposed that China's steel production should "surpass Britain in 15 years and surpass the US in 50 years", exemplifying the pedestal of importance given to steel production. Many historians critique Mao's idealistic goal in attempting to quickly surpass Britain and the US in terms of steel production as being unrealistic, yet in reality, China's steel production was able to approximately catch up with that of Britain's in 15 years and China was able to surpass the US in terms of steel production in just 38 years after the goal had been set by Mao. Nevertheless, the inclusion of steelmaking on currency serves as a reminder by the state to the average citizens of how industrial development still serves as the cornerstone of overall national prosperity.</li>
+                <li><b>10 Yuan</b> - An eye-level mid shot of a collective proletariat portrait. The 10 Yuan note came to be nicknamed "Great Unity" due to its portrayal of proletarian unity, underscoring the state's consideration of propagating the value of national and class unities in order to prevent rifts from developing between groups that may give rise to national fragmentation.</li>
+            </ul>
+            <p>The idea of proletarian unity also comes into play. The lesser denominations all portray individual laborers in specific settings, but when they are put together, they form a collage that resembles an exhibition that highlights the theme of the glorification of labor. The idea of it forming a collage is evident in the highest denomination 10 Yuan being nicknamed "Great Unity" as it portrays the different ethnic groups and the worker, farmer, and soldier (the three main proletarian careers in the Mao era) in China, subliminally underscoring to the reader the importance of maintaining national, class, and cross-ethnic unity in China.</p>
+            
+            <div style="margin: 15px 0; width: 100%;">
+                <img src="../images9/rmb-third-3.jpg" alt="Third Series RMB - Overview" style="width: 100%; height: 500px; object-fit: cover; border-radius: 8px; transition: all 0.3s ease; background-color: #f5f5f5; cursor: pointer;">
+                <p style="text-align: center; margin-top: 8px; font-size: 1.1rem; color: #333;">Historical recreation photograph, including the Third Series of RMB 2 Yuan note</p>
+            </div>
+            <div style="margin: 15px 0; width: 100%;">
+                <img src="../images9/rmb-third-4.jpg" alt="Third Series RMB - Detailed View" style="width: 100%; height: 500px; object-fit: cover; border-radius: 8px; transition: all 0.3s ease; background-color: #f5f5f5; cursor: pointer;">
+                <p style="text-align: center; margin-top: 8px; font-size: 1.1rem; color: #333;">Historical recreation photograph, including the Third Series of RMB 10 Yuan note</p>
+            </div>
+            
+            <h2>Numismatics - The Fourth Series of RMB 1987</h2>
+            <p>After the Open and Reform Policy of 1978 spearheaded by Deng Xiaoping, China's socio-economic and political landscape renewed. In the new directive to open the country up to foreign investment and to "learn the advanced experiences of foreign countries", revolutionary socialism (i.e., Maoism, especially under the context of the Cultural Revolution) was stalled. This was reflected in the newly issued Fourth Series of RMB.</p>
+            <p>The Fourth Series of RMB was released in 1987 and featured the following denominations: 1 Jiao, 2 Jiao, 5 Jiao, 1 Yuan, 2 Yuan, 5 Yuan, and 10 Yuan, 50 Yuan, and 100 Yuan. Despite the party's quasi-renunciation of orthodox socialism and the cult of personality of Mao, the Fourth Series of RMB was the first series of RMB to feature a portrait of Mao Zedong on its currency on the 100 Yuan note.</p>
+            <div style="margin: 1px 0; width: 100%;">
+                <img src="../images9/rmb-fourth-0.jpg" alt="Overview of the Fourth Series of RMB" style="width: 100%; height: 500px; object-fit: contain; cursor: pointer;">
+                <p style="text-align: center; margin-top: 8px; font-size: 1.1rem; color: #333;">The Fourth Series of RMB (1987) - Top to Bottom (Left to Right) - 1 Yuan, 2 Yuan, 5 Yuan, 10 Yuan, 50 Yuan, 100 Yuan (1 Jiao, 2 Jiao, 5 Jiao are included in the comparative image below)</p>
+            </div>
+            <p>The Open and Reform Policy brought China into an era of unprecedented growth, resulting in an increase in real GDP (the level of output of the economy) and demand-pull inflation, which is generally considered healthy inflation for a country's economic development. As price levels increased and subsequent wage increases, the previous 10 Yuan notes were unable to support large monetary transactions and therefore birthed the 50 Yuan and 100 Yuan notes. Both of these notes serve as memorabilia of the growing economy in the post-Mao era and an increasing material quality of life (supported by the abundance of products on the market and increasing household incomes). However, perhaps with this economic growth and the abolition of the portrayal of proletarian glory and unity and the fairness-oriented Maoist framework, China's inequality and corruption soared in the early years of the Open and Reform Policy, eventually evolving into the political turbulence of the late 1980s.</p>
+            <p>Extending this idea, as "class struggles" was no longer the dominant political narrative, national unity became the new underlying theme of the Fourth Series of RMB. To this end, figure selection became more based on showcasing the cultural diversity and cross-ethnic unity in China, attempting to strengthen the unified national image and collective identity. This was the case for the following denominations: 1 Jiao, 2 Jiao, 5 Jiao, 1 Yuan, 2 Yuan, 5 Yuan, and 10 Yuan notes.</p>
+            <p>Particularly interesting artifacts, the 50 Yuan and 100 Yuan notes took on a more traditional politically-oriented manner to bolster the notion of national unity and the idea of a national identity. The 50 Yuan note featured three symbolic figures (left to right) – the intelligentsia, the farmer, and the worker – that represented the social constituency of Chinese society at the time. By arranging the three figures in tandem, it conveyed a sense of collective solidarity and unity across the different sectors, and as all three sectors still possessed heavy influence from the social landscape of the Mao era, it can be seen, to some extent, as the swansong numismatic piece that still carries the last remaining orthodox socialist ideals. On the other hand, the 100 Yuan note featured the portraits of four state and party leaders (left to right) – Zhu De, Liu Shaoqi, Chou Enlai, and Mao Tse-tung. The particular inclusion of Liu in tandem with Mao is reflective of the party's stance towards the late-Mao era (i.e., the Great Leap Forward and the Cultural Revolution) where it now denounced the zealous attempt at "perpetual revolution" via the Cultural Revolution. In essence, it is symbolic of the party acknowledging Liu's theory of letting capitalism develop first was not a "wrong line", providing ideological and authoritative foundations for the Dengist Open and Reform Policy.</p>
+            <p> </p>
+            <p>Comparative between Third Series of RMB and Fourth Series of RMB (Please zoom-in for detailed view):</p>
+            <div class="image-grid" style="margin-bottom: 30px; max-width: 800px; margin-left: auto; margin-right: auto;">
+                <div style="position: relative; height: 250px; overflow: hidden;">
+                    <img src="../images9/rmb-fourth-1.jpg" alt="1 Yuan note from Third Series RMB" style="width: 100%; height: 100%; object-fit: contain; border-radius: 8px; transition: all 0.3s ease; background-color: #f5f5f5; cursor: pointer;">
+                    <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.7); color: white; padding: 20px; opacity: 0; transition: opacity 0.3s; display: flex; align-items: center; justify-content: center; text-align: center; border-radius: 8px;">
+                        <p style="margin: 0; font-size: 1.1rem;">1 Yuan note featuring industrial workers</p>
+                    </div>
+                </div>
+                <div style="position: relative; height: 250px; overflow: hidden;">
+                    <img src="../images9/rmb-fourth-2.jpg" alt="5 Yuan note from Third Series RMB" style="width: 100%; height: 100%; object-fit: contain; border-radius: 8px; transition: all 0.3s ease; background-color: #f5f5f5; cursor: pointer;">
+                    <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.7); color: white; padding: 20px; opacity: 0; transition: opacity 0.3s; display: flex; align-items: center; justify-content: center; text-align: center; border-radius: 8px;">
+                        <p style="margin: 0; font-size: 1.1rem;">5 Yuan note with agricultural theme</p>
+                    </div>
+                </div>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-top: 15px;">
+                <p style="margin: 0; text-align: center; font-size: 1.1rem; color: #333;">Top to Bottom: <br> 1 Jiao, 2 Jiao, 5 Jiao</p>
+                <p style="margin: 0; text-align: center; font-size: 1.1rem; color: #333;">Top to Bottom: <br> 1 Yuan, 2 Yuan, 5 Yuan, 10 Yuan</p>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-top: 15px;"></div>
+
+
+            <style>
+                .image-grid div:hover div {
+                    opacity: 1;
+                }
+                .image-grid div:hover img {
+                    transform: scale(1.05);
+                }
+            </style>
+
+            <script>
+                // Get all images with hover effect
+                const images = document.querySelectorAll('.image-grid img');
+                const modal = document.getElementById('imageModal');
+                const modalImg = document.getElementById('modalImage');
+                const modalTitle = document.getElementById('modalTitle');
+                const modalDescription = document.getElementById('modalDescription');
+                const closeBtn = document.querySelector('#imageModal span');
+
+                // Add click event to all images
+                images.forEach(img => {
+                    img.addEventListener('click', function() {
+                        modal.style.display = 'block';
+                        modalImg.src = this.src;
+                        modalTitle.textContent = this.alt;
+                        modalDescription.textContent = this.nextElementSibling.querySelector('p').textContent;
+                        document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
+                    });
+                });
+
+                // Close modal when clicking the close button
+                closeBtn.addEventListener('click', function() {
+                    modal.style.display = 'none';
+                    document.body.style.overflow = 'auto'; // Re-enable scrolling
+                });
+
+                // Close modal when clicking outside the image
+                modal.addEventListener('click', function(e) {
+                    if (e.target === modal) {
+                        modal.style.display = 'none';
+                        document.body.style.overflow = 'auto'; // Re-enable scrolling
+                    }
+                });
+
+                // Close modal when pressing Escape key
+                document.addEventListener('keydown', function(e) {
+                    if (e.key === 'Escape' && modal.style.display === 'block') {
+                        modal.style.display = 'none';
+                        document.body.style.overflow = 'auto'; // Re-enable scrolling
+                    }
+                });
+            </script>
+            
+            <h2>Numismatics - The Fifth Series of RMB 1999</h2>
+            <p>After Deng's southern visit in 1992, China's liberalization of the economy continued, entering what would be considered the fastest economic growth window China (and the world) will ever see. With such growth came increasing exports and imports, and in this increasingly interconnected world, the Fourth Series of RMB became obsolete as it was not considered to be instantly recognizable on the international market. Thus, a currency that possessed more recognizable Chinese characteristics went under design.</p>
+            <p>Eventually, Mao was decided as the most recognizable Chinese figure to be printed on the Fifth Series of RMB. Differing from the Fourth Series of RMB, Mao was featured all the denominations. The reverse of each of the bills featured a site of nature or those with humanistic value, demonstrating the balance between economic growth and the retention of tradition and nature.</p>
+            <p>The Fifth Series of RMB included the following denominations: 1 Yuan, 5 Yuan, 10 Yuan, 20 Yuan, 50 Yuan, and 100 Yuan. The 2 Yuan denomination was canceled and the 20 Yuan denomination was added. Additionally, the Fifth Series of RMB continued using the 1 Jiao and 5 Jiao bills from the Fourth Series of RMB with no new designs being made. The 2 Jiao bill was cancelled. This is further evidence of healthy demand-pull inflation that occurs with the natural increases in price levels as the economy grows, demonstrating overall economic growth and development of China.</p>            
+            <div class="image-grid" style="margin: 15px 0;">
+                <div style="position: relative; height: 400px; overflow: hidden;">
+                    <img src="../images9/rmb-fifth-1.jpg" alt="Fifth Series RMB - Front" style="width: 100%; height: 100%; object-fit: contain; border-radius: 8px; transition: all 0.3s ease; background-color: #f5f5f5; cursor: pointer;">
+                    <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.7); color: white; padding: 20px; opacity: 0; transition: opacity 0.3s; display: flex; align-items: center; justify-content: center; text-align: center; border-radius: 8px;">
+                        <p style="margin: 0; font-size: 1.1rem;">Front side of the Fifth Series RMB notes</p>
+                    </div>
+                </div>
+                <div style="position: relative; height: 400px; overflow: hidden;">
+                    <img src="../images9/rmb-fifth-2.jpg" alt="Fifth Series RMB - Back" style="width: 100%; height: 100%; object-fit: contain; border-radius: 8px; transition: all 0.3s ease; background-color: #f5f5f5; cursor: pointer;">
+                    <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.7); color: white; padding: 20px; opacity: 0; transition: opacity 0.3s; display: flex; align-items: center; justify-content: center; text-align: center; border-radius: 8px;">
+                        <p style="margin: 0; font-size: 1.1rem;">Back side of the Fifth Series RMB notes</p>
+                    </div>
+                </div>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-top: 15px;">
+                <p style="margin: 0; text-align: center; font-size: 1.1rem; color: #333;">Top to Bottom: <br> 100 Yuan, 50 Yuan, 20 Yuan, 10 Yuan, 5 Yuan, 1 Yuan (Source: <a href="https://mbd.baidu.com/newspage/data/dtlandingsuper?nid=dt_4036524129470202027" target="_blank">Baidu</a>)</p>
+                <p style="margin: 0; text-align: center; font-size: 1.1rem; color: #333;">Focused view of the 100 Yuan note, nicknamed "red Mao" (Source: <a href="https://image.baidu.com/search/detail?z=0&word=%E7%AC%AC%E4%BA%94%E5%A5%97%E4%BA%BA%E6%B0%91%E5%B8%81%2B%E6%A0%B7%E5%B8%81%E9%AB%98%E6%B8%85&hs=0&pn=3&spn=0&di=7482437761027276801&pi=0&rn=1&tn=baiduimagedetail&is=0%2C0&ie=utf-8&oe=utf-8&lm=&cs=3222997072%2C3723686883&os=3894469151%2C2602814337&simid=3222997072%2C3723686883&adpicid=0&lpn=0&fr=click-pic&fm=&ic=&hd=&latest=&copyright=&isImgSet=&commodity=&hot=&imgratio=&imgformat=&sme=&width=0&height=0&cg=&bdtype=0&oriquery=&objurl=https%3A%2F%2Fbkimg.cdn.bcebos.com%2Fpic%2Fb7003af33a87e950cc6da3e010385343faf2b4c0&fromurl=ippr_z2C%24qAzdH3FAzdH3Fkwthj_z%26e3Bkwt17_z%26e3Bv54AzdH3Ftpj4AzdH3F%25E9%25Bb%25AD%25Ec%25bD%25bE%25E9%25BA%25BA%25Em%25Ba%25l8%25Ec%25bc%25B8%25Ec%25ld%25bC%25Ec%25lB%25BD%25E0%25AC%25AC%25E9%25BA%25l9%25Ec%25Ac%25l0%25E9%25BA%25BA%25Em%25Ba%25l8%25Ec%25Bb%25b8AzdH3Fd0alab9&gsm=1e&islist=&querylist=&lid=10380812080731491149" target="_blank">Baidu</a>)</p>
+            </div>
+            <p> </p>
+            <p>Though the cult of personality of Mao was much denounced after the 3rd Plenary Session of the 11th CPC Central Committee, its somewhat re-emergence in numismatics testifies to the enduring legacy of Mao both domestically and internationally. Domestically, Mao's status as the savior of China and the Chinese people remains unchanged, and all political power still, to a large extent, stems from Mao. Internationally, Mao remains to be the most recognizable Chinese figure and a beacon of the remaining revolutionary ideals of China.</p>
+            <h2>Conclusion</h2>
+            <p>The study of numismatics reveals that coins are far more than mere currency—they are miniature canvases of history, capturing the essence of their time. Through their designs, materials, and inscriptions, they reflect the political ambitions, cultural values, and economic realities of the societies that minted them. Like echoes of the Zeitgeist, these small yet profound artifacts allow us to trace the evolution of the Chinese social, economic, and political landscape, offering a tangible connection to the past. As we examine these fragments of history, we are reminded that material culture serves as an indispensable lens through which we can interpret the grand narratives of human experience. This exhibition has invited us to appreciate how something as commonplace as currency can unlock profound insights into the world that shaped it—and, in turn, the world it helped shape.</p>
+            <a href="../index.html" class="back-to-home">Home Page</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Mao Era Garbology. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html> 

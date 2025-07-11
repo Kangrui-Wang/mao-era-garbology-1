@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mao Era Garbology</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Mao Era Garbology</h1>
+            <p class="slogan">A Study of Material Culture Delineating the Idealistic Progression of Chinese Society</p>
+        </div>
+    </section>
+
+    <section class="banners">
+        <div class="container banners-container">
+            <div class="banner" id="intro-banner">
+                <div class="banner-content">
+                    <h2>Thesis</h2>
+                    <p>Thesis behind the use utilization of material culture as a lens of historical investigation and the progressions of Chinese society it represents.</p>
+                    <a href="pages/intro.html" class="banner-btn">Read More</a>
+                </div>
+            </div>
+
+            <div class="banner" id="author-banner">
+                <div class="banner-content">
+                    <h2>About the Author</h2>
+                    <p>Meet the researcher behind Mao's Garbology, exploring the methodology and passion that drives this unique historical investigation.</p>
+                    <a href="pages/author.html" class="banner-btn">Learn More</a>
+                </div>
+            </div>
+
+            <div class="banner" id="references-banner">
+                <div class="banner-content">
+                    <h2>References and Further Readings</h2>
+                    <p>Explore the curated collection of academic resources, related research, and external references.</p>
+                    <a href="pages/references.html" class="banner-btn">View Resources</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="welcome-text">
+        <div class="container">
+            <p class="welcome-message">Material culture is a lens of historical investigation beyond the textbooks that showcases the humanistic interactions of "average people" with the Zeitgeist.</p>
+        </div>
+    </section>
+
+    <section class="squares">
+        <div class="container squares-container">
+            <a href="pages/spring.html" class="square-item" id="spring">
+                <h2>Numismatics</h2>
+                <div class="square-content">
+                    <p class="subtitle">Exploring Monetary History</p>
+                </div>
+            </a>
+
+            <a href="pages/summer.html" class="square-item" id="summer">
+                <h2>Honors and Insignia</h2>
+                <div class="square-content">
+                    <p class="subtitle">Symbols of Recognition</p>
+                </div>
+            </a>
+
+            <a href="pages/autumn.html" class="square-item" id="autumn">
+                <h2>Publication and Praxis</h2>
+                <div class="square-content">
+                    <p class="subtitle">Theory and Practice</p>
+                </div>
+            </a>
+
+            <a href="pages/winter.html" class="square-item" id="winter">
+                <h2>Soviet Influence</h2>
+                <div class="square-content">
+                    <p class="subtitle">Academia, Literature, and Ideology</p>
+                </div>
+            </a>
+
+            <a href="pages/star.html" class="square-item" id="star">
+                <h2>Mao</h2>
+                <div class="square-content">
+                    <p class="subtitle">Selected Works, Quotations, and Publications</p>
+                </div>
+            </a>
+
+            <a href="pages/dragon.html" class="square-item" id="constellation">
+                <h2>Apparels</h2>
+                <div class="square-content">
+                    <p class="subtitle">Military Uniforms Through the Years</p>
+                </div>
+            </a>
+
+            <a href="pages/sun.html" class="square-item" id="sun">
+                <h2>Exonumia</h2>
+                <div class="square-content">
+                    <p class="subtitle">Tickets, Rations, and Stamps</p>
+                </div>
+            </a>
+
+            <a href="pages/moon.html" class="square-item" id="moon">
+                <h2>Diaries</h2>
+                <div class="square-content">
+                    <p class="subtitle">Personal Records</p>
+                </div>
+            </a>
+
+            <a href="pages/sea.html" class="square-item" id="sea">
+                <h2>Memories</h2>
+                <div class="square-content">
+                    <p class="subtitle">Personal Recollections</p>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Mao Era Garbology. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // 轮播功能
+        function initSlider() {
+            const slides = document.querySelectorAll('.slide');
+            let currentSlide = 0;
+
+            function showSlide(index) {
+                slides.forEach(slide => slide.classList.remove('active'));
+                slides[index].classList.add('active');
+            }
+
+            function nextSlide() {
+                currentSlide = (currentSlide + 1) % slides.length;
+                showSlide(currentSlide);
+            }
+
+            // 每5秒切换一次图片
+            setInterval(nextSlide, 5000);
+        }
+
+        // 页面加载完成后初始化轮播
+        document.addEventListener('DOMContentLoaded', initSlider);
+    </script>
+</body>
+</html> 

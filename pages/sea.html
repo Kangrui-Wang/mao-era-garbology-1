@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memories - Mao Era Garbology</title>
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        /* 导航菜单样式 */
+        .nav-menu {
+            position: fixed;
+            top: 50%;
+            right: 30px;
+            transform: translateY(-50%);
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.98);
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            min-width: 200px;
+        }
+
+        .nav-menu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .nav-menu li {
+            margin-bottom: 15px;
+        }
+
+        .nav-menu li:last-child {
+            margin-bottom: 0;
+        }
+
+        .nav-menu a {
+            display: block;
+            padding: 12px 20px;
+            color: #4a4a4a;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+            white-space: nowrap;
+            border: 1px solid transparent;
+        }
+
+        .nav-menu a:hover {
+            background-color: #ed693def;
+            color: white;
+            border-color: #ed693def;
+            transform: translateX(-5px);
+        }
+
+        .nav-menu .home-link {
+            background-color: #ed693def;
+            color: white;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .nav-menu .home-link:hover {
+            background-color: #d45a2e;
+            color: white;
+            transform: translateX(-5px);
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: static;
+                transform: none;
+                margin: 20px auto;
+                text-align: center;
+                max-width: 90%;
+            }
+
+            .nav-menu ul {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+
+            .nav-menu li {
+                margin-bottom: 0;
+            }
+
+            .nav-menu .home-link {
+                margin-bottom: 0;
+            }
+
+            .nav-menu a {
+                padding: 10px 15px;
+                font-size: 1rem;
+            }
+        }
+
+        /* 子页面特定样式 */
+        .subpage-header {
+            height: 40vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+                        url('../images/sea-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .subpage-title {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .subpage-subtitle {
+            font-size: 1.2rem;
+            font-weight: 300;
+        }
+
+        .content-section {
+            padding: 60px 0;
+            background-color: #fff;
+        }
+
+        .content-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .content-section h2 {
+            font-size: 2rem;
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+        }
+
+        .content-section p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 1.5rem;
+        }
+
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin: 2rem 0;
+        }
+
+        .image-item {
+            text-align: center;
+        }
+
+        .image-grid img {
+            width: 100%;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .image-grid img:hover {
+            transform: scale(1.05);
+        }
+
+        .image-caption {
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+            color: #666;
+            font-style: italic;
+            line-height: 1.4;
+        }
+
+        .vertical-image-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .vertical-image-item {
+            text-align: center;
+        }
+
+        .vertical-image-item img {
+            width: 100%;
+            max-width: 600px;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .vertical-image-item img:hover {
+            transform: scale(1.02);
+        }
+
+        .back-to-home {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #ed693def;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            margin-top: 2rem;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+
+        .back-to-home:hover {
+            background-color: #d45a2e;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .subpage-header {
+                height: 30vh;
+            }
+
+            .subpage-title {
+                font-size: 2.5rem;
+            }
+
+            .content-section {
+                padding: 40px 0;
+            }
+
+            .content-section h2 {
+                font-size: 1.8rem;
+            }
+
+            .content-section p {
+                font-size: 1rem;
+            }
+
+            .image-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav-menu">
+        <ul>
+            <li><a href="../index.html" class="home-link">Home Page</a></li>
+            <li><a href="intro.html">Thesis</a></li>
+            <li><a href="author.html">Author</a></li>
+            <li><a href="references.html">References</a></li>
+        </ul>
+    </nav>
+
+    <header class="subpage-header">
+        <div class="container">
+            <h1 class="subpage-title">Memories and Legacies</h1>
+            <p class="subpage-subtitle">Exploring the remnants and memories of the Mao Era in the Post-Mao Era</p>
+        </div>
+    </header>
+
+    <section class="content-section">
+        <div class="content-container">
+            <blockquote style="font-style: italic; margin: 2em 0; padding: 1em 2em; border-left: 4px solid #ed693def; background-color: #f9f9f9;">
+                "We must objectively judge the merits and demerits of Chairman Mao. It is certain that the successes of Chairman Mao come first, and the demerits come second. We will not do to Chairman Mao what Khrushchev did to Stalin."
+                <div style="text-align: right; margin-top: 1em;">
+                    --- Deng Xiaoping, during an interview with Italian reporter Oriana Fallaci (August 1980)
+                </div>
+            </blockquote>
+            <h2>Memories - "The Good"</h2>
+            <p>The Mao Era, spanning from 1949 to 1976, is often remembered for its revolutionary zeal and transformative impact on Chinese society. During this time, many individuals experienced a profound sense of spiritual fulfillment and collective purpose, despite facing material challenges. Mao, as the leader of the Communist Party of China, played a crucial role in fostering this sense of empowerment among the populace.</p>
+            <p>Mao's vision aimed to liberate the masses from the remnants of feudalism and imperialism, promoting ideals of equality and social justice. His emphasis on class struggle and the promotion of revolutionary values inspired the people to actively participate in the transformation of their society. Campaigns aimed at restructuring China, such as the Great Leap Forward and the Cultural Revolution, sought to industrialize China and to install national pride. </p>
+            <p>The Mao Era encouraged individuals to challenge traditional hierarchies and engage in the collective pursuit of a better future. Many found purpose in being part of a larger movement, believing in the potential for a more equitable society. In this sense, Mao is often viewed as a transformative figure whose leadership inspired generations.</p>
+            <p>Overall, the changes initiated during the Mao Era fostered a sense of hope and identity among the Chinese people, leaving a lasting legacy that continues to influence discussions about leadership and revolutionary change in China today.</p>
+            <div class="image-grid">
+                <div class="image-item">
+                    <img src="../images4/sea-1.jpg" alt="Beach postcards from the 1960s">
+                    <div class="image-caption">A CPC Flag made from traditional Chinese knots. On display at the National Museum of China.</div>
+                </div>
+                <div class="image-item">
+                    <img src="../images4/sea-2.jpg" alt="Coastal market receipts">
+                    <div class="image-caption">A proposed design for the national flag of China (1949). On display at the National Museum of China.</div>
+                </div>
+                <div class="image-item">
+                    <img src="../images4/sea-3.jpg" alt="Seaside activity diaries">
+                    <div class="image-caption">A wax figure of Lei Feng (an immortalized soldier of the Mao Era). On display at the National Museum of China.</div>
+                </div>
+                <div class="image-item">
+                    <img src="../images4/sea-4.jpg" alt="Maritime study notebooks">
+                    <div class="image-caption">A Type 07 (army green) brassard of the PLA General Political Department.</div>
+                </div>
+            </div>
+            <h2>Memories - "The Bad"</h2>
+            <p>While the Mao Era is often celebrated for its revolutionary zeal and transformative impact, it is essential to acknowledge the inevitable limitations and challenges associated with Mao Zedong's leadership. One significant criticism pertains to Mao's policies not being the most economically wise. The ambitious policies implemented during this period, such as the Great Leap Forward, aimed to accelerate industrialization and collectivization. However, these initiatives frequently led to mismanagement, resource allocation issues, and ultimately, significant economic disruptions. The focus on ideological purity over pragmatic economic planning resulted in widespread famine and suffering, raising questions about the sustainability of Mao's vision for a classless society.</p>
+            <p>Additionally, Mao's approach to dissent and opposition has been a point of contention among scholars and observers. His treatment of perceived adversaries, particularly during the Cultural Revolution, is often characterized as excessively harsh. The campaign targeted intellectuals, party officials, and ordinary citizens who were deemed counter-revolutionary. While some argue that this violence was a necessary means to consolidate power and promote revolutionary ideals, others contend that it fostered an atmosphere of fear and repression. The debate surrounding the true nature of popular violence during this period remains complex, with differing interpretations of the motivations behind such actions.</p>
+            <div class="vertical-image-stack">
+                <div class="vertical-image-item">
+                    <img src="../images4/sea-6.jpg" alt="Decaying industrial infrastructure">
+                    <div class="image-caption">The site of a public criticism, where the politically undesirables were publicly humiliated and criticized.</div>
+                </div>
+            </div>
+            <p>While Mao’s leadership undeniably inspired significant social change and mobilized the masses towards collective goals, it also introduced critical limitations. The tension between ideological aspirations and practical economic realities, coupled with the harsh treatment of dissent, highlights the complexities of his legacy. This duality invites ongoing reflection on the implications of revolutionary change and the balance between equality and efficiency in governance.</p>
+
+            <h2>Memories - A Definitive Conclusion?</h2>
+            <p>The Mao Era and the post-Mao Era in China each possess distinct characteristics that reflect the evolving political, economic, and social landscape of the country. The Mao Era is often marked by its revolutionary zeal, ideological fervor, and attempts at radical social transformation. Policies aimed at achieving equality and promoting collectivism defined this period, influencing the lives of millions. The emphasis on class struggle and the mobilization of the masses created a unique atmosphere of engagement and commitment to revolutionary ideals.</p>
+            <p>In contrast, the post-Mao Era, particularly under the leadership of figures like Deng Xiaoping and currently Xi Jinping, has been characterized by a pragmatic approach to economic reform and modernization. The shift toward market-oriented policies and open-door strategies has facilitated unprecedented economic growth, lifting millions out of poverty. This era also emphasizes stability, governance, and a more centralized authority, reflecting a departure from the more chaotic elements of the Mao Era.</p>
+            <p>Xi Jinping's reference to "两个不能否定" (two things that cannot be denied) encapsulates the recognition of both the achievements and challenges of these two distinct periods. It acknowledges that while the Mao Era laid the foundational framework for modern China, the post-Mao Era has introduced significant advancements in economic development and global engagement. This dual recognition allows for a nuanced understanding of China's trajectory and the complexities inherent in its historical narrative.</p>
+            <div class="vertical-image-item" style="margin: 2rem 0;">
+                <img src="../images4/sea-5.jpg" alt="Mao Zedong during Cultural Revolution">
+                <div class="image-caption">A Mao-font slogan in Shenyang (Mukden) North Station that reads, "The People's Railway is for the People". It is among many of Mao Era slogans that are still visible in China today.</div>
+            </div>
+            <p>The interplay between the legacies of Mao and contemporary politics raises important questions about governance, ideology, and the future direction of the Chinese state. It invites further exploration of how historical elements continue to shape current policies and the ways in which leaders navigate the balance between ideological commitment and practical governance. Thus, the examination of these two eras highlights the multifaceted nature of China's development and the ongoing discourse surrounding its past and future.</p>
+            
+            
+            <div style="background-color: #f8f9fa; border: 1px solid #e9ecef; border-radius: 8px; padding: 2rem; margin: 2rem 0; font-style: italic; line-height: 1.8;">
+                <h3 style="color: #495057; margin-bottom: 1rem; font-style: normal;">The Winds and Echoes</h3>
+                <p style="margin-bottom: 1rem;">
+                    Piercing winds howled through the once-behemoth, now-empty metallic congregations of the factory ruins—the remnants of early modern China. Rusty pipes clattered with one another, releasing an eerie chirp. The percussions. Wastewater was blown out violently. Tip… Tap. The harp. Gales mustered a dissonant assonance. The woodwinds.                 </p>
+                <p style="margin-bottom: 1rem;">
+                    It was a symphony that reverberated with echoes of the proclamation: “A specter is haunting Europe—the specter of communism,” declaring the opening of a transformative work. Not only does this specter haunt Europe, but it has also haunted and still haunts much of the world. Interestingly, those haunted never gained full cognizance of it. Yet those decried as the specter did not either.                 </p>
+                <p style="margin-bottom: 1rem;">
+                    Since 1978, China has been stripped of its zealous symbols of upheaval, leaving behind only scattered revolutionary relics. The decay of the factories epitomizes how the concentrated industrialism of the early republic was abandoned, with its soul ruthlessly torn out, leaving behind a scorching, still-beating heart to bleed dry in solitude.                 </p>
+                <p style="margin-bottom: 1rem;">
+                    In their prime, these factories were the republic’s lifeblood, flowing from the southern tip of Hainan to the western expanse of Sinkiang. In the present, they stand as mere rubble. Ordinary souls might dismiss them as haunted wreckage, transforming, psychologically, glory into gory.                 </p>
+                <p style="margin-bottom: 1rem;">
+                    Perhaps it is in such juxtaposition that the ghostliness permeates: the greater the rift between the ideal and reality, the more intense the shock and freight.                 </p>
+                 <p style="margin-bottom: 1rem;">
+                    A gust of wind swept past, lifting a swarm of bright plastic foils that refracted the sun’s rays, blinding anyone daring to stare. These memorabilia of modern industrialism attempted to conceal their predecessors, fighting for recognition as the rightful representation of industry—despite their illicit nature.                  <p style="margin-bottom: 1rem;">
+                 <p style="margin-bottom: 1rem;">
+                    A final blow. The winds lightly brushed off the flamboyant redundancies of the seeming modernity: the eroded walls, the corroded pipes, and the smell of humid ash. Peace at last.                  <p style="margin-bottom: 1rem;">
+                    Suddenly, another echo shattered the serenity. A smoky screen of rust powder rushed into the sky. The dilapidated ceiling could no longer withstand the trials of time. It collapsed—first spiritually, then physically.                </p>                                
+                <p style="margin-bottom: 1rem;">
+                    With the unexpected yet expected violent striking of such a large clock, an era has ended.                <p style="margin-bottom: 1rem;">
+                </p>
+                <p style="margin-bottom: 1rem;">
+                    Or does it? Can an era truly end?                 </p>
+                <p style="margin-bottom: 1rem;">
+                    Despite the collapse of the factories, the spirit of them lingers in society, for it is the early republic upon which the current one rests.                 </p>
+                <p style="margin-bottom: 1rem;">
+                    Did the specter win? Did the specter lose? No one can provide a definitive answer, not even history itself. Yet one thing is certain: the specter of the factory died when it came crashing down, but can a long-living specter even die?                  </p>
+                <p style="margin-bottom: 1rem;">
+                    We can never know. 
+                </p>
+                <p style="margin-bottom: 1rem;">
+                    For even the materialistic Marx cries, “The revolution is dead! Long live the revolution!” 
+                <p style="margin-bottom: 1rem;">    
+                    It seems today that the ghostly specter still lives.
+                <div style="text-align: right; margin-top: 1.5rem; font-style: normal; color: #6c757d;">
+                    --- The Author, 2025
+                </div>
+            </div>
+
+            <a href="../index.html" class="back-to-home">Home Page</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Mao Era Garbology. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html> 

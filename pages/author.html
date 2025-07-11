@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Author - Mao Era Garbology</title>
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        /* 导航菜单样式 */
+        .nav-menu {
+            position: fixed;
+            top: 50%;
+            right: 30px;
+            transform: translateY(-50%);
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.98);
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            min-width: 200px;
+        }
+
+        .nav-menu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .nav-menu li {
+            margin-bottom: 15px;
+        }
+
+        .nav-menu li:last-child {
+            margin-bottom: 0;
+        }
+
+        .nav-menu a {
+            display: block;
+            padding: 12px 20px;
+            color: #4a4a4a;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+            white-space: nowrap;
+            border: 1px solid transparent;
+        }
+
+        .nav-menu a:hover {
+            background-color: #ed693def;
+            color: white;
+            border-color: #ed693def;
+            transform: translateX(-5px);
+        }
+
+        .nav-menu .home-link {
+            background-color: #ed693def;
+            color: white;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .nav-menu .home-link:hover {
+            background-color: #d45a2e;
+            color: white;
+            transform: translateX(-5px);
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: static;
+                transform: none;
+                margin: 20px auto;
+                text-align: center;
+                max-width: 90%;
+            }
+
+            .nav-menu ul {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+
+            .nav-menu li {
+                margin-bottom: 0;
+            }
+
+            .nav-menu .home-link {
+                margin-bottom: 0;
+            }
+
+            .nav-menu a {
+                padding: 10px 15px;
+                font-size: 1rem;
+            }
+        }
+
+        /* 子页面特定样式 */
+        .subpage-header {
+            height: 40vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+                        url('../images/Author_Banner.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .subpage-title {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .subpage-subtitle {
+            font-size: 1.2rem;
+            font-weight: 300;
+        }
+
+        .content-section {
+            padding: 60px 0;
+            background-color: #fff;
+        }
+
+        .content-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .content-section h2 {
+            font-size: 2rem;
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+        }
+
+        .content-section p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 1.5rem;
+        }
+
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin: 2rem 0;
+        }
+
+        .image-grid .image-item {
+            position: relative;
+            aspect-ratio: 4/3;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .image-grid img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .image-grid img:hover {
+            transform: scale(1.05);
+        }
+
+        .image-caption {
+            margin-top: 10px;
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.4;
+            text-align: center;
+        }
+
+        .back-to-home {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #ed693def;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            margin-top: 2rem;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+            font-size: 1.1rem;
+        }
+
+        .back-to-home:hover {
+            background-color: #d45a2e;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .subpage-header {
+                height: 30vh;
+            }
+
+            .subpage-title {
+                font-size: 2.5rem;
+            }
+
+            .content-section {
+                padding: 40px 0;
+            }
+
+            .content-section h2 {
+                font-size: 1.8rem;
+            }
+
+            .content-section p {
+                font-size: 1rem;
+            }
+
+            .image-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1100;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            overflow: auto;
+        }
+
+        .modal-content {
+            position: relative;
+            margin: auto;
+            padding: 20px;
+            max-width: 90%;
+            max-height: 90vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .modal img {
+            max-width: 100%;
+            max-height: 80vh;
+            object-fit: contain;
+            margin-bottom: 20px;
+            border-radius: 8px;
+        }
+
+        .modal .image-caption {
+            color: white;
+            font-size: 1.1rem;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .close {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <!-- Add modal container at the top of body -->
+    <div id="imageModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <img id="modalImage" src="" alt="">
+            <div id="modalCaption" class="image-caption"></div>
+        </div>
+    </div>
+
+    <nav class="nav-menu">
+        <ul>
+            <li><a href="../index.html" class="home-link">Home Page</a></li>
+            <li><a href="intro.html">Thesis</a></li>
+            <li><a href="author.html">Author</a></li>
+            <li><a href="references.html">References</a></li>
+        </ul>
+    </nav>
+
+    <header class="subpage-header">
+        <div class="container">
+            <h1 class="subpage-title">About the Author</h1>
+            <p class="subpage-subtitle">The "Curator" of Mao Era Garbology</p>
+        </div>
+    </header>
+
+    <section class="content-section">
+        <div class="content-container">
+            <h2>Biography - Kangrui (Kerry) Wang</h2>
+            <p>Numismatist | Collector | IB Student | History Enthusiast</p>
+            <p>I am Kangrui (Kerry) Wang, the "curator" of Mao Era Garbology. I am an avid collector and history enthusiast, and in my works, as evident in Mao Era Garbology, I often interweave the two – exploring history through the lens of numismatic and exonumia collections. Since 2021, I have visited a plethora of antique markets and flea markets all over China in furthering the exploration of "Sinological Garbology" (the study of modern Chinese history via discarded materials, as proposed by Swedish sinologist Michael Schoenhals) and "Flea Market History". My collection now features a wide array of artifacts, from medals and orders of the Soviet Union to old Chinese publications from the Great Proletarian Cultural Revolution (1966-1976) to numismatics of Ancient Rome.</p>
+            <p>I am also an IB DP student (or "candidate" as per the jargon of "the establishment") who is taking DP History HL with a pathway focus on the Modern History of Europe (sections 14, 15, 16). Thus, there will be references to the IB History syllabus scattered in Mao Era Garbology as an allusion to my academic background, paying homage to concentrations such as "persuasion and coercion", "consolidation and maintenance of power", and "domestic/social/cultural policy" of World History Topic 10: Authoritarian States (20th Century) and "rectification", "transitions to socialism", "Sino-Soviet Split", "Great Proletarian Cultural Revolution", and "Four Modernizations" of HL Asia section 14: The People's Republic of China (1949-2005).</p>
+            <div class="image-grid">
+                <div class="image-item">
+                    <img src="../images/author-1.jpg" alt="Author conducting research">
+                    <div class="image-caption">The author exploring historical artifacts in an antique market in Beijing.</div>
+                </div>
+                <div class="image-item">
+                    <img src="../images/author-2.jpg" alt="Author with artifacts">
+                    <div class="image-caption">The author exploring historical documents, publications, and badges from the Great Proletarian Cultural Revolution (1966-1976).</div>
+                </div>
+                <div class="image-item">
+                    <img src="../images/author-3.jpg" alt="Research documentation">
+                    <div class="image-caption">The author's personal collection of badges, medals, orders, and related materials of the Soviet Union.</div>
+                </div>
+                <div class="image-item">
+                    <img src="../images/author-4.jpg" alt="Field work">
+                    <div class="image-caption">The author conducting field research at a historical site in Linhai, Zhejiang that features remnants of the Great Proletarian Cultural Revolution (1966-1976) with the slogan "'Serve the People' - Mao Tse-tung".</div>
+                </div>
+            </div>
+
+            <div class="image-grid" style="grid-template-columns: 1fr;">
+                <div class="image-item">
+                    <img src="../images/author-5.jpg" alt="Historical research landscape">
+                    <div class="image-caption">The author (Left 2) interviewing Liu Jinsfeng (former Consul General of China in Busan, Center), Sha Zukang (former Under Secretary General, Department of Economic and Social Affairs, United Nations; Right 2), and Zhao Yali (former Chinese Ambassador to Uganda; Right 1).</div>
+                </div>
+            </div>
+
+            <h2>Research Focus</h2>
+            <p>My focus of study and research has so far been predominantly on the History of the International Communist Movement and its manifestations in different regions. Situated within this broad historiographical domain, I have produced and published articles regarding topics such as the analysis of the influences of the Soviet Union on the development of the Republic of China (RoC) and the People's Republic of China (PRC), the evaluation of the Three Major Antitheses (i.e., industrial-agricultural antithesis, urban-rural antithesis, and intellectual-physical labor antithesis) in contemporary Chinese society, and the evaluation of the success and limitations of the Meiji Restoration in the modernization of Japan. I am currently researching and in the process of developing an analytical essay evaluating the role of foreign intervention, namely that of the Comintern, in the causation of the Barcelona May Days in the Spanish Civil War (1937).</p>
+
+            <h2>Contacts</h2>
+            <p>Feel free to reach out through the following channels:</p>
+            <p>Email: <a href="mailto:kw_7292@163.com" style="color: #4a5c6e; text-decoration: none;">kw_7292@163.com</a></p>
+            <p>Instagram: <a href="https://www.instagram.com/kerrywang7292" target="_blank" style="color: #4a5c6e; text-decoration: none;">@kerrywang7292</a></p>
+            
+            <a href="../index.html" class="back-to-home">Home Page</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Mao Era Garbology. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Get the modal
+        const modal = document.getElementById("imageModal");
+        const modalImg = document.getElementById("modalImage");
+        const modalCaption = document.getElementById("modalCaption");
+        const closeBtn = document.getElementsByClassName("close")[0];
+
+        // Get all image items
+        const imageItems = document.querySelectorAll('.image-item');
+
+        // Add click event to all images
+        imageItems.forEach(item => {
+            item.addEventListener('click', function() {
+                modal.style.display = "block";
+                const img = this.querySelector('img');
+                const caption = this.querySelector('.image-caption');
+                modalImg.src = img.src;
+                modalImg.alt = img.alt;
+                modalCaption.textContent = caption.textContent;
+            });
+        });
+
+        // Close modal when clicking the × button
+        closeBtn.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        // Close modal when clicking outside the image
+        modal.onclick = function(event) {
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        // Close modal with escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape" && modal.style.display === "block") {
+                modal.style.display = "none";
+            }
+        });
+    </script>
+</body>
+</html> 

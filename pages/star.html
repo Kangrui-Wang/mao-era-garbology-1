@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mao - Mao Era Garbology</title>
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        /* 导航菜单样式 */
+        .nav-menu {
+            position: fixed;
+            top: 50%;
+            right: 30px;
+            transform: translateY(-50%);
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.98);
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            min-width: 200px;
+        }
+
+        .nav-menu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .nav-menu li {
+            margin-bottom: 15px;
+        }
+
+        .nav-menu li:last-child {
+            margin-bottom: 0;
+        }
+
+        .nav-menu a {
+            display: block;
+            padding: 12px 20px;
+            color: #4a4a4a;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+            white-space: nowrap;
+            border: 1px solid transparent;
+        }
+
+        .nav-menu a:hover {
+            background-color: #ed693def;
+            color: white;
+            border-color: #ed693def;
+            transform: translateX(-5px);
+        }
+
+        .nav-menu .home-link {
+            background-color: #ed693def;
+            color: white;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .nav-menu .home-link:hover {
+            background-color: #d45a2e;
+            color: white;
+            transform: translateX(-5px);
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: static;
+                transform: none;
+                margin: 20px auto;
+                text-align: center;
+                max-width: 90%;
+            }
+
+            .nav-menu ul {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+
+            .nav-menu li {
+                margin-bottom: 0;
+            }
+
+            .nav-menu .home-link {
+                margin-bottom: 0;
+            }
+
+            .nav-menu a {
+                padding: 10px 15px;
+                font-size: 1rem;
+            }
+        }
+
+        /* 子页面特定样式 */
+        .subpage-header {
+            height: 40vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+                        url('../images/star-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .subpage-title {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .subpage-subtitle {
+            font-size: 1.2rem;
+            font-weight: 300;
+        }
+
+        .content-section {
+            padding: 60px 0;
+            background-color: #fff;
+        }
+
+        .content-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .content-section h2 {
+            font-size: 2rem;
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+        }
+
+        .content-section p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 1.5rem;
+        }
+
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin: 2rem 0;
+        }
+
+        .image-grid img {
+            width: 100%;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .image-grid img:hover {
+            transform: scale(1.05);
+        }
+
+        .image-grid figure {
+            margin: 0;
+            text-align: center;
+        }
+
+        .image-grid figcaption {
+            margin-top: 10px;
+            font-size: 0.9rem;
+            color: #666;
+            font-style: italic;
+            line-height: 1.4;
+        }
+
+        .back-to-home {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #ed693def;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            margin-top: 2rem;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+            font-size: 1.1rem;
+        }
+
+        .back-to-home:hover {
+            background-color: #d45a2e;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .subpage-header {
+                height: 30vh;
+            }
+
+            .subpage-title {
+                font-size: 2.5rem;
+            }
+
+            .content-section {
+                padding: 40px 0;
+            }
+
+            .content-section h2 {
+                font-size: 1.8rem;
+            }
+
+            .content-section p {
+                font-size: 1rem;
+            }
+
+            .image-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .video-container {
+            margin: 2rem 0;
+        }
+        .video-container h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+        video {
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .portrait-gallery {
+            margin: 2rem 0;
+        }
+
+        .portrait-gallery h3 {
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+            font-size: 1.4rem;
+        }
+
+        .portrait-item {
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .portrait-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .portrait-item figure {
+            margin: 0;
+        }
+
+        .portrait-item img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .portrait-item figcaption {
+            margin-top: 10px;
+            font-size: 0.9rem;
+            color: #666;
+            font-style: italic;
+            line-height: 1.4;
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav-menu">
+        <ul>
+            <li><a href="../index.html" class="home-link">Home Page</a></li>
+            <li><a href="intro.html">Thesis</a></li>
+            <li><a href="author.html">Author</a></li>
+            <li><a href="references.html">References</a></li>
+        </ul>
+    </nav>
+
+    <header class="subpage-header">
+        <div class="container">
+            <h1 class="subpage-title">Mao Tse-tung</h1>
+            <p class="subpage-subtitle">Exploring the complex and multifaceted legacy of Mao Tse-tung</p>
+        </div>
+    </header>
+
+    <section class="content-section">
+        <div class="content-container">
+            <h2>Mao - The Mao Tse-tung Thought (Maoism)</h2>
+            <p>The New Constitution of the Communist Party of China postulates that the Mao Tse-tung Thought (Maoism) can be conceived as:</p>
+            <p><i>Mao Zedong Thought is the product of the combination of the fundamental principles of Marxism-Leninism and the specific realities of the Chinese revolution. It is the crystallization of the collective wisdom of the Chinese Communist Party. The theories, lines, and principles proposed by Mao regarding the New Democratic Revolution and the Socialist Revolution, along with his immortal contributions in the areas of politics, economics, culture, military affairs, diplomacy, and party building, as well as his correct ideas on a series of major issues in socialist construction, all enrich and develop Marxism-Leninism, representing our Party's invaluable spiritual wealth. Its main content can be summarized in three basic aspects: the establishment of a thought line (the line of seeking truth from facts); the exploration of three paths (the uniquely Chinese revolutionary path of encircling the cities from the countryside and seizing power through armed struggle; the Chinese path of socialism; the Chinese approach to socialist construction); and the formation of three theoretical systems (the theory of New Democratic Revolution; the theory of socialist transformation in the Chinese context; the theory of social contradictions in socialist China).</i></p>
+            <p>Indeed, the most prominent non-material legacy of Mao remains Mao Tse-tung Thought. To many, Mao's thoughts represent a last idealist attempt (as of now) to defend a non-revisionist socialist state and socialist vision. Its successes and limitations, as explored in other sections of Mao Era Garbology, are multifaceted and hard to definitively judge. </p>
+            
+            <div class="image-grid">
+                <figure>
+                    <img src="../images6/mao-1.JPG" alt="Mao Zedong Thought propaganda poster">
+                    <figcaption>Mao's and other CPC member's signature at the First Chinese People's Political Consultative Conference.</figcaption>
+                </figure>
+                <figure>
+                    <img src="../images6/mao-2.JPG" alt="Little Red Book collection">
+                    <figcaption>An oil painting of Mao at Jinggangshan (On display at the National Museum of China)</figcaption>
+                </figure>
+                <figure>
+                    <img src="../images6/mao-3.JPG" alt="Maoist study group materials">
+                    <figcaption>Tiananmen Square, with Mao's portrait centered on the top of the Tiananmen Gate.</figcaption>
+                </figure>
+                <figure>
+                    <img src="../images6/mao-4.jpg" alt="Mao Zedong Thought study session">
+                    <figcaption>The Youth Mao Tse-tung Statue built on Orange Isle, Changsha (where Mao lived in his early years).</figcaption>
+                </figure>
+            </div>
+            <p>However, ideological critics of Mao accuse Mao's theories of being, in and of themselves, a deviation from orthodox Marxist theory. Particularly during the Cultural Revolution, Mao disregarded the fundamental Marxist principle that the development of the productive forces drives the alterations in the relationships of production and not vice versa. It is also for this reason, among others, that Albanian leader Hoxha critiques Maoism as an "anti-Marxist ideology."</p>
+
+            <h2>Mao - Persona and Leadership</h2>
+            <p>Mao built a powerful political persona, to the extent that it can be considered a "cult of personality." He skillfully utilized his popularity and political persona to exert significant influence over the nation. On the material culture level, this cult of personality led to the widespread usage of Mao's portrait in various forms. The instance of its use in the Mao Badges is explored in an earlier section. This section will present the overwhelming presence of Mao's image in other realms of daily life, showcasing how it became an integral part of the cultural landscape, influencing everything from art and fashion to public spaces and daily interactions.</p>            
+            <div class="video-container">
+                <h3>Film footage of Chairman Mao's Fifth and Sixth Receiving of the Cultural Revolution Army (Red Guards)</h3>
+                <p>Source: Chinese Public Domain</p>
+            </div>
+
+            <div class="video-container">
+                <p>Part 1.</p>
+                <video width="100%" controls>
+                    <source src="../videos/mao-leadership.mp4" type="video/mp4">
+                </video>
+            </div>
+
+            <div class="video-container">
+                <p>Part 2.</p>
+                <video width="100%" controls>
+                    <source src="../videos/mao-cultural-revolution.mp4" type="video/mp4">
+                </video>
+            </div>
+
+            <div class="portrait-gallery">
+                <h3>Mao's portraits</h3>
+                <div class="portrait-item">
+                    <figure>
+                        <img src="../images6/mao-p-1.jpg" alt="Mao portrait 1">
+                        <figcaption>Mao's portrait at a school event where children are reciting Mao's revolutionary theories (Cultural Revolution).</figcaption>
+                    </figure>
+                </div>
+                <div class="portrait-item">
+                    <figure>
+                        <img src="../images6/mao-p-2.jpg" alt="Mao portrait 2">
+                        <figcaption>A painted Mao poster during the Cultural Revolution. The bottom slogan reads, "Long Live Chairman Mao!". The top slogan, which is a Quotation of Chairman Mao, reads, "You [the people] need to be concerned with the great matters of the state, and you need to resolutely carry through with the Great Proletarian Cultural Revolution."</figcaption>
+                    </figure>
+                </div>
+                <div class="portrait-item">
+                    <figure>
+                        <img src="../images6/mao-p-3.jpg" alt="Mao portrait 3">
+                        <figcaption>A propaganda image taken during the Cultural Revolution in front of Tiananmen Gate (with Mao's portrait centered on the top of the Tiananmen Gate). The image showcases ethnic unity within China. The central figures (left to right) are a Soldier wearing the Type 65 Uniform, a Chinese male industrial worker, and a Chinese female farmer. This constitutes the classic "Soldier, Worker, Farmer" image of the Mao Era.</figcaption>
+                    </figure>
+                </div>
+                <div class="portrait-item">
+                    <figure>
+                        <img src="../images6/mao-p-4.jpg" alt="Mao portrait 4">
+                        <figcaption>An artistic poster of Mao created by the Central Academy of Fine Arts and two other organizations specific to the Cultural Revolution Era. The slogan reads, "The Mao Tse-tung Thought has illuminated our party's pathway in advancing towards victory".</figcaption>
+                    </figure>
+                </div>
+                <div class="portrait-item">
+                    <figure>
+                        <img src="../images6/mao-p-5.jpg" alt="Mao portrait 5">
+                        <figcaption>A propaganda poster showcasing the establishment of Revolutionary Committees in the Cultural Revolution. The top slogan, above the Mao portrait, reads, "Revolutionary Committees are good". The bottom image is a map of China, with annotations of the specific information of the Revolutionary Committees in each province. The label next to Taiwan reads, "We must liberate Taiwan!". The slogan above the map of China reads, "Long live the holistic victory of the Cultural Revolution!".</figcaption>
+                    </figure>
+                </div>
+                <div class="portrait-item">
+                    <figure>
+                        <img src="../images6/mao-p-6.jpg" alt="Mao portrait 6">
+                        <figcaption>A paper cut of the Cultural Revolution Era. The classic image of Mao's bust is cut on the red banner, which bears the slogan, "Long live the Great Proletarian Cultural Revolution!". The bottom left features a visual representation of the Selected Works of Mao Tse-tung. This work is made by the "East is Red" Crafts Factory in Foshan, Guangdong.</figcaption>
+                    </figure>
+                </div>
+
+            </div>
+
+            <h2>Mao - Remembrance</h2>
+            <p>As mentioned previously, Mao’s legacy is multifaceted and complex. His supporters view him as a champion of the proletariat, believing that his policies significantly benefited the working class and improved their lives. In contrast, his opponents argue that they were harmed by Mao’s policies, experiencing repression and hardship as a result of his regime. This division highlights the polarized perspectives on Mao’s impact, reflecting the broader socio-political landscape of the time. Perhaps this comes to prove exactly what Mao stated, “A certain tree will grow that certain flow, just like how a certain class will say that certain thing.” This quote underscores the idea that individual experiences and interpretations of Mao's leadership are deeply influenced by one's social class and political alignment, illustrating the enduring complexity of his legacy.</p>
+            <div class="portrait-item">
+                <figure>
+                    <img src="../images6/mao-p-8.jpg" alt="Mao portrait 8">
+                    <figcaption>An excerpt from a 1976 aviation magazine. The panel is dedicated to the mourning of Chairman Mao (who passed away on September 9, 1976). The panel title (on both pages) reads, "The Great Leader Chairman Mao will forever live in our hearts". The title of the article on the left page reads, "Forever follow Chairman Mao's revolutionary path in our forward advancement". The author of this article is the vice-commander of the PLA Air Force Zhang Jihui, who is also known for downing U.S. flying ace George A. Davis Jr. in the Korean War. The article title on the left page (vertical) reads, "The Mao Tse-tung Thought will forever shine brightly". The author is a collective, all the airmen and officers of an unknown heroic air force squadron.</figcaption>
+                </figure>
+            </div>
+            <div class="portrait-item">
+                <figure>
+                    <img src="../images6/mao-p-7.jpg" alt="Mao portrait 7">
+                    <figcaption>A modern recreation of a Cultural Revolution Era styled propaganda poster, demonstrating the lasting influence of the Mao Era. The slogans read (top to bottom), "Highest [Mao's] Directives", "You [the people] must be concerned with the great matters of the state, and you need to resolutely carry through with the Great Proletarian Cultural Revolution", "Revolutionary culture is a strong revolutionary weapon for the masses", and "It is very much necessary for the youth intellectuals to go to the rural areas to receive further education from the peasantry".</figcaption>
+                </figure>
+            </div>
+            
+            <p>Mao’s legacy will also be further explored in the “Diaries” and “Memories” section. </p>
+
+            <a href="../index.html" class="back-to-home">Home Page</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Mao Era Garbology. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html> 
